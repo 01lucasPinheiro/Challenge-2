@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct testeAnimacao: View {
+struct TesteAnimacaoView: View {
         @State private var adjustBy = 100.0
 
 
@@ -37,5 +37,5 @@ struct testeAnimacao: View {
 }
 
 #Preview {
-testeAnimacao()
+    TesteAnimacaoView()
 }

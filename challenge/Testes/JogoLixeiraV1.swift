@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct testemovimento: View {
+struct JogoLixeiraV1: View {
     @State private var alvos: [CGSize] = Array(repeating: .zero, count: 5)
     @State private var foiAcertado: [Bool] = Array(repeating: false, count: 5)
     let corAlvos: [Color] = [.blue, .red, .yellow, .green, .purple]
@@ -83,10 +83,11 @@ struct testemovimento: View {
                                 
             }
         }.frame(maxWidth: .infinity, maxHeight: .infinity)
+            
         
     }
 }
 
 #Preview {
-    testemovimento()
+    JogoLixeiraV1()
 }

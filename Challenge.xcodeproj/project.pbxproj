@@ -11,9 +11,9 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		A04D0E752FB3956F00855118 /* teste */ = {
+		A04D0E752FB3956F00855118 /* challenge */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			path = teste;
+			path = challenge;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
@@ -32,7 +32,7 @@
 		A04D0E6A2FB3956F00855118 = {
 			isa = PBXGroup;
 			children = (
-				A04D0E752FB3956F00855118 /* teste */,
+				A04D0E752FB3956F00855118 /* challenge */,
 				A04D0E742FB3956F00855118 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -61,7 +61,7 @@
 			dependencies = (
 			);
 			fileSystemSynchronizedGroups = (
-				A04D0E752FB3956F00855118 /* teste */,
+				A04D0E752FB3956F00855118 /* challenge */,
 			);
 			name = teste;
 			packageProductDependencies = (
@@ -85,7 +85,7 @@
 					};
 				};
 			};
-			buildConfigurationList = A04D0E6E2FB3956F00855118 /* Build configuration list for PBXProject "teste" */;
+			buildConfigurationList = A04D0E6E2FB3956F00855118 /* Build configuration list for PBXProject "Challenge" */;
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -326,7 +326,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		A04D0E6E2FB3956F00855118 /* Build configuration list for PBXProject "teste" */ = {
+		A04D0E6E2FB3956F00855118 /* Build configuration list for PBXProject "Challenge" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				A04D0E7C2FB3957000855118 /* Debug */,

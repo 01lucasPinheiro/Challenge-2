@@ -56,7 +56,7 @@ struct testeTela: View {
                             
                         }
                     }.navigationDestination(isPresented: $navegando){
-                        testemovimento()
+                        JogoLixeiraView()
                     }
                     HStack{
                         Spacer()
