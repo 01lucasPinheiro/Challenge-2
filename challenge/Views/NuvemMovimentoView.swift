@@ -40,7 +40,7 @@ struct CloudView: View {
     }
 }
 
-struct MovingCloudView: View {
+struct NuvemMovimentoView: View {
     @State private var moveCloud = false
 
     var body: some View {
@@ -72,6 +72,6 @@ struct MovingCloudView: View {
 
 
 #Preview {
-    MovingCloudView()
+    NuvemMovimentoView()
 }
 

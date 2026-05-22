@@ -31,7 +31,7 @@ struct ChuvaParticulas: View {
 }
 
 struct testedaChuva: View {
-    var intensidadeChuva = 200
+    var intensidadeChuva = 1000
     
     var body: some View {
         GeometryReader { geometry in

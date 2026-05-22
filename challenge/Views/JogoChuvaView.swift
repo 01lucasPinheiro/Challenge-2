@@ -21,7 +21,7 @@ struct JogoChuvaView: View {
                     viewModel.mudarMapa()
                     
                 }
-            testedaChuva()
+                testedaChuva()
         }
     }
 }

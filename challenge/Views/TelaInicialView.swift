@@ -35,25 +35,28 @@ struct testeTela: View {
             HStack {
                 ZStack {
                     ScrollView([.horizontal, .vertical], showsIndicators: false) {
-                        ZStack {
-                            Image(mapa)
-                                .frame (width: 1022, height: 1366)
-                            
-                            Circle()
-                                .fill(corCirculo.opacity(0.0001))
-                                .frame(width: 80, height: 80)
-                                .position(x: 520, y: 400)
-                                .onTapGesture {
-                                    corCirculo = .blue
-                                    barra1 += 50
-                                    barra2 -= 20
-                                    navegando = true
-                                    estadoMapa += 1
-                                }
-                            
-                            
-                            
-                            
+                        ScrollViewReader{ proxy in
+                            ZStack {
+                                Image(mapa)
+                                    .frame (width: 1500, height: 1366)
+                                
+                                Circle()
+                                    .fill(corCirculo.opacity(0.1))
+                                    .frame(width: 80, height: 80)
+                                    .position(x: 758, y: 397)
+                                    .onTapGesture {
+                                        corCirculo = .blue
+                                        barra1 += 50
+                                        barra2 -= 20
+                                        navegando = true
+                                        estadoMapa += 1
+                                    }
+                                NuvensAnimadasView()
+                            }
+                            .id("centroMapa")
+                            .onAppear {
+                                proxy.scrollTo("centroMapa", anchor: .center)
+                            }
                         }
                     }.navigationDestination(isPresented: $navegando){
                         JogoLixeiraView()
