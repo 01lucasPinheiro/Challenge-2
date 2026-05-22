@@ -37,12 +37,12 @@ struct testeTela: View {
                     ScrollView([.horizontal, .vertical], showsIndicators: false) {
                         ZStack {
                             Image(mapa)
-                                .frame (width: 1500, height: 1500)
+                                .frame (width: 1022, height: 1366)
                             
                             Circle()
-                                .fill(corCirculo)
-                                .frame(width: 50, height: 50)
-                                .position(x: 740, y: 280)
+                                .fill(corCirculo.opacity(0.0001))
+                                .frame(width: 80, height: 80)
+                                .position(x: 520, y: 400)
                                 .onTapGesture {
                                     corCirculo = .blue
                                     barra1 += 50

@@ -12,7 +12,7 @@ import Observation
 class JogoLixeiraViewModel {
     var posicao: [CGSize] = Array(repeating: .zero, count: 5)
     var lixeirasAbertas: [Bool] = Array(repeating: false, count: 5)
-    var lixeiraCerta: [Int] = [0, 1, 2, 3, 4].shuffled()
+    var lixeiraCerta: [Int] = [0, 1, 2, 3, 4].shuffled() //aleatorizar a posicao
     var pontuacao = 0
     var framesLixeiras: [CGRect] = Array(repeating: .zero, count: 5)
     
