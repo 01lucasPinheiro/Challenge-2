@@ -42,6 +42,7 @@ struct CloudView: View {
 
 struct NuvemMovimentoView: View {
     @State private var moveCloud = false
+    @State private var moveCloud2 = false
 
     var body: some View {
         ZStack {
@@ -50,15 +51,12 @@ struct NuvemMovimentoView: View {
             
             // Nuvem com animação
             ZStack {
-                Capsule().frame(width: 120, height: 50)
-                Circle().frame(width: 50, height: 50).offset(x: -30, y: -10)
-                Circle().frame(width: 60, height: 60).offset(x: 20, y: -15)
-                Circle().frame(width: 40, height: 40).offset(x: -5, y: -20)
+                Image("Nuvem_2")
             }
             .foregroundColor(.white.opacity(0.8))
-            .offset(x: moveCloud ? -200 : 200)
+            .offset(x: moveCloud ? -200 : 200, y: -800)
             .animation(
-                Animation.linear(duration: 8)
+                Animation.linear(duration: 28)
                     .repeatForever(autoreverses: false),
                 value: moveCloud
             )
