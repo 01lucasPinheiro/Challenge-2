@@ -9,13 +9,13 @@ import Foundation
 import SwiftUI
 struct ButtonsComponent<Destino: View>: View {
     
-    var showIcon: Bool = false
+    var mostrarIcon: Bool = false
     var icon: String
-    var buttonText: String
+    var textoBotao: String
     var radius: CGFloat = 0
-    var colorTextButton: Color
-    var colorButton: Color
-    var colorButtonGradient: Color
+    var corTextoBotao: Color
+    var corBotao: Color
+    var corBotaoGradiente: Color
     var widthFrame: CGFloat = 0
     var heightFrame: CGFloat = 0
     var contornoBranco: Bool = false
@@ -37,23 +37,23 @@ struct ButtonsComponent<Destino: View>: View {
 
                 }
                 HStack {
-                    if showIcon {
+                    if mostrarIcon {
                         Image(systemName: icon)
                             .resizable()
                             .frame(width: 21, height:23)
                             .padding(.trailing, 10)
                             .padding(.bottom, 3)
                     }
-                    Text(buttonText)
+                    Text(textoBotao)
                         .font(.system(size: 18, weight: .bold)) // Peso da fonte aqui
                 }
                 .frame(width: widthFrame, height: heightFrame)
-                .foregroundColor(colorTextButton)
+                .foregroundColor(corTextoBotao)
                 .background(
                     LinearGradient(
                         stops: [
-                            Gradient.Stop(color: colorButton, location: 0.0),
-                            Gradient.Stop(color: colorButtonGradient, location: 3),
+                            Gradient.Stop(color: corBotao, location: 0.0),
+                            Gradient.Stop(color: corBotaoGradiente, location: 3),
                             ],
                             
                         startPoint: .top,
@@ -71,5 +71,5 @@ struct ButtonsComponent<Destino: View>: View {
     }
 }
 #Preview {
-    ButtonsComponent(showIcon: false, icon: "arrow.forward", buttonText: "Iniciar", radius: 30, colorTextButton: .botaoTexto, colorButton: .botaoAzul, colorButtonGradient: .azulGradiente, widthFrame: 300, heightFrame: 50, contornoBranco: true, tela: ContentView())
+    ButtonsComponent(mostrarIcon: false, icon: "arrow.forward", textoBotao: "Iniciar", radius: 30, corTextoBotao: .botaoTexto, corBotao: .botaoAzul, corBotaoGradiente: .azulGradiente, widthFrame: 300, heightFrame: 50, contornoBranco: true, tela: ContentView())
 }
