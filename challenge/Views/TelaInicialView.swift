@@ -8,7 +8,11 @@ struct testeTela: View {
     @State private var barra2 = 100.0
     @State private var navegando: Bool = false
     @State private var estadoMapa = 0
+    @State private var escalaAtual: CGFloat = 0.5
+    @State private var ultimaEscala: CGFloat = 1.0
     
+    let zoomMinimo: CGFloat = 0.5
+    let zoomMaximo: CGFloat = 2.0
     var mapa: String {
         switch estadoMapa {
         case 0...2:
@@ -25,7 +29,7 @@ struct testeTela: View {
                     ScrollViewReader { proxy in
                         ZStack {
                             Image(mapa)
-                                .frame(width: 1500, height: 1366)
+                                .frame(width: 2488, height: 1861)
                             
                             Circle()
                                 .fill(corCirculo.opacity(0.1))
@@ -43,6 +47,18 @@ struct testeTela: View {
                             
                             NuvensAnimadasView()
                         }
+                        .scaleEffect(escalaAtual)
+                        .gesture(
+                            MagnificationGesture()
+                                .onChanged { value in
+                                    let novaEscala = ultimaEscala * value
+                                    //clamp que restringe o valor entre o mim e max
+                                    escalaAtual = min(max(novaEscala, zoomMinimo), zoomMaximo)
+                                }
+                                .onEnded { _ in
+                                    ultimaEscala = escalaAtual
+                                }
+                        )
                         .id("centroMapa")
                         .onAppear {
                             proxy.scrollTo("centroMapa", anchor: .center)
@@ -60,11 +76,13 @@ struct testeTela: View {
                     }
                     .padding()
                 }
-
+                
+                
                 .allowsHitTesting(true)
-            }
+            }.background(Image("fundoTelaInicial"))
             .navigationDestination(isPresented: $navegando) {
                 JogoLixeiraView()
+                    
             }
         }
     }
