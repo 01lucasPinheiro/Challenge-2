@@ -12,40 +12,53 @@ import Observation
 class JogoLixeiraViewModel {
     var posicao: [CGSize] = Array(repeating: .zero, count: 5)
     var lixeirasAbertas: [Bool] = Array(repeating: false, count: 5)
-    var lixeiraCerta: [Int] = [0, 1, 2, 3, 4].shuffled() //aleatorizar a posicao
+    var lixeiraCerta: [Int] = [0, 1, 2, 3, 4].shuffled() // aleatorizar a posicao
     var pontuacao = 0
     var framesLixeiras: [CGRect] = Array(repeating: .zero, count: 5)
-    
+    var circulosVisiveis: [Bool] = Array(repeating: true, count: 5)
+
     func nomeImagemLixeira(para index: Int) -> String {
         return lixeirasAbertas[index] ? "lixeiraAberta" : "lixeiraFechada"
     }
     
     func atualizarArrasto(index: Int, translacao: CGSize, localizacao: CGPoint) {
+        // Evita mover um círculo que já sumiu
+        guard circulosVisiveis[index] else { return }
+        
         posicao[index] = translacao
         for i in 0..<5 {
             lixeirasAbertas[i] = framesLixeiras[i].contains(localizacao)
         }
     }
     
-    func finalizarArrasto(index: Int, localizacao: CGPoint) {
+    func finalizarArrasto(index: Int, localizacao: CGPoint, cidadeData: DadosCidadeData) {
+        var caiuEmAlgumaLixeira = false
+        
         for indexDaLixeira in 0..<5 {
-            print(framesLixeiras[indexDaLixeira])
-            print(localizacao)
             if framesLixeiras[indexDaLixeira].contains(localizacao) {
+                caiuEmAlgumaLixeira = true
                 
                 if !lixeiraCerta.isEmpty {
                     let lixeiraCorreta = lixeiraCerta[index]
+                    
                     if indexDaLixeira == lixeiraCorreta {
-                        pontuacao += 1
+                        pontuacao += 5
+                        cidadeData.alterarPoulicao(novoValor: 0.05)
                     } else {
-                        pontuacao -= 1
+                        pontuacao -= 5
+                        cidadeData.alterarPoulicao(novoValor: -0.05)
+
+
                     }
+                    
+                    circulosVisiveis[index] = false
                 }
                 break
             }
         }
         
         posicao[index] = .zero
+        
         for i in 0..<5 {
             lixeirasAbertas[i] = false
         }

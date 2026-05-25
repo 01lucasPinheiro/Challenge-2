@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct JogoLixeiraView: View {
+    @Environment(DadosCidadeData.self) var cidadeData
     @State private var viewModel = JogoLixeiraViewModel()
     
     var body: some View {
@@ -26,7 +27,6 @@ struct JogoLixeiraView: View {
                                     }
                             }
                         )
-
                 }
             }
             
@@ -39,14 +39,22 @@ struct JogoLixeiraView: View {
                         .frame(width: 40, height: 40)
                         .overlay(Text("\(index)").foregroundColor(.white))
                         .offset(viewModel.posicao[index])
+                    
+                        .opacity(viewModel.circulosVisiveis[index] ? 1.0 : 0.0)
+                        .disabled(!viewModel.circulosVisiveis[index])
+                    
                         .gesture(
                             DragGesture(coordinateSpace: .named("campoDoJogo"))
                                 .onChanged { value in
                                     viewModel.atualizarArrasto(index: index, translacao: value.translation, localizacao: value.location)
                                 }
                                 .onEnded { value in
-                                    withAnimation {
-                                        viewModel.finalizarArrasto(index: index, localizacao: value.location)
+                                    withAnimation(.easeInOut(duration: 0.2)) {
+                                        viewModel.finalizarArrasto(
+                                            index: index,
+                                            localizacao: value.location,
+                                            cidadeData: cidadeData
+                                        )
                                     }
                                 }
                         )
@@ -61,4 +69,5 @@ struct JogoLixeiraView: View {
 
 #Preview {
     JogoLixeiraView()
+        .environment(DadosCidadeData()) //precisamos do enviromente aqui para nao gerar erro
 }

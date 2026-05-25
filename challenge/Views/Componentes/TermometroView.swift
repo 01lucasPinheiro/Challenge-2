@@ -6,39 +6,55 @@
 //
 
 import SwiftUI
+import Observation
 
 struct TermometroView: View {
-    @State private var temperatura: CGFloat = 0.1
-    private let altura: CGFloat = 300
-    private let largura: CGFloat = 50
-    
+
+    let temperatura: Double
+    private let comprimento: CGFloat = 300
+    private let espessura: CGFloat = 50
+    private let marcacoes: [CGFloat] = [0.25, 0.5, 0.75]
     var body: some View {
-        VStack{
-            ZStack(alignment: .bottom){
+        VStack(spacing: 30) {
+            
+            // O Termômetro
+            ZStack(alignment: .leading) {
                 Capsule()
-                    .fill(Color.gray)
-                    .frame(width: largura, height: altura)
+                    .fill(Color.gray.opacity(0.3))
+                    .frame(width: comprimento, height: espessura)
                 
                 Capsule()
                     .fill(
                         LinearGradient(
-                            colors: [.red, .orange, .yellow, .green],
-                            startPoint: .top,
-                            endPoint: .bottom,
+                            colors: [.green, .yellow, .orange, .red],
+                            startPoint: .leading,
+                            endPoint: .trailing
                         )
-                    ).frame(width: largura, height: altura)
+                    )
+                    .frame(width: comprimento, height: espessura)
                     .mask(
-                        VStack {
-                            Spacer(minLength: 0)
+                        HStack(spacing: 0) {
                             Rectangle()
-                                .frame(height: altura * temperatura)
+                                .frame(width: comprimento * temperatura)
+                            Spacer(minLength: 0)
                         }
                     )
+                
+                // 3. Tracinhos de Marcação (1/8, 1/4, 1/2, etc.)
+                ForEach(marcacoes, id: \.self) { fracao in
+                    Rectangle()
+                        .fill(Color.white.opacity(0.6))
+                        .frame(width: 2, height: espessura)
+                        .offset(x: comprimento * fracao)
+
+                }
             }
+            .frame(width: comprimento, height: espessura)
+            
         }
     }
 }
 
 #Preview {
-    TermometroView()
+    TermometroView(temperatura: 0.2)
 }
