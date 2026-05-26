@@ -7,9 +7,14 @@
 
 import SwiftUI
 import Combine
+import Foundation
 
 struct JogoFabricaView: View {
     @State private var viewModel = JogoChuvaViewModel()
+    
+    
+  
+    
     var body: some View {
         GeometryReader { geometry in
             
@@ -68,15 +73,116 @@ struct JogoFabricaView: View {
                     Image("Placa")
                         .interpolation(.none)
                         .resizable()
-                        //Scale(0.6)
+                    //Scale(0.6)
                         .scaledToFit()
-                        .frame(width: 800, height: 800)
-                        .offset(x: -100, y: 230)
+                        .frame(width: 600, height: 600)
+                        // .offset(x: -100, y: 280
                     
+                        .position(x: geometry.size.width, y: geometry.size.width / 2 + 80 )
+                        .containerRelativeFrame(.vertical){length, axis in length / 2}
+                    
+                    
+                    
+                    
+                    
+                    // INTERFACE INTERATIVA
                     ZStack{
-                        Image(
-                          
+                        // Retângulo guia
+                        RoundedRectangle(cornerRadius: 20)
+                        .stroke(Color.white, lineWidth: 5)
+                        .fill(Color.cinzaEscuro)
+                        .foregroundColor(.white)
+                        //.fill(Color.gray)
+                        .frame(width: 1000, height: 100)
+                        .position(x: geometry.size.width / 2, y: geometry.size.width / 2 + 150 )
+                        .containerRelativeFrame(.vertical){length, axis in length / 2} // travar na parte inferior da tela no sentido vertical
+                        
+                        Text("Controle de Produção")
+                            .font(
+                            Font.custom("Inter-Regular", size: 28)
+                                .weight(.heavy)
+                            )
+                            .foregroundColor(.white)
+                            .position(x: geometry.size.width  - 850, y: geometry.size.width / 2 + 150 )
+                            .containerRelativeFrame(.vertical){length, axis in length / 2} // travar na parte
+                       
+                        
+                        
+                        
+                        ZStack{
+                            // retângulo inferior
+                            Image("Rectangle 201")
+                                .resizable()
+                            //Scale(0.6)
+                                .scaledToFit()
+                                .frame(width: 350, height: 350)
+                                .position(x: geometry.size.width / 2, y: geometry.size.width / 2 + 150 )
+                            // .offset(y:  y: geometry.frame(in: .global).maxY)
+                                .containerRelativeFrame(.vertical){length, axis in length / 2}
+                            
+                            ZStack{
+                                // Peça do medidor
+                                Image("Union")
+                                    .resizable()
+                                //Scale(0.6)
+                                    .scaledToFit()
+                                    .frame(width: 350, height: 350)
+                                    .position(x: geometry.size.width / 2, y: geometry.size.width / 2 + 40)
+                                    .containerRelativeFrame(.vertical){length, axis in length / 2}
+                                
+                                ZStack{
+                                    // Botões de aumentar e subtrair
+                                  
+                                    
+                                    ButtonsComponent(mostrarIcon: false, icon: "arrow.forward", textoBotao: "-", radius: 20, corTextoBotao: .botaoTexto, corBotao: .botaoAzul, corBotaoGradiente: .azulGradiente, widthFrame: 90, heightFrame: 70, contornoBranco: true, tela: ContentView())
+                                        .position(x: geometry.size.width / 2 - 100, y: geometry.size.width / 2 + 150 )
+                                        .containerRelativeFrame(.vertical){length, axis in length / 2}
+                                    
+                                    ButtonsComponent(mostrarIcon: false, icon: "arrow.forward", textoBotao: "+", radius: 20, corTextoBotao: .botaoTexto, corBotao: .botaoAzul, corBotaoGradiente: .azulGradiente, widthFrame: 90, heightFrame: 70, contornoBranco: true, tela: ContentView())
+                                        .position(x: geometry.size.width / 2 + 100, y: geometry.size.width / 2 + 150 )
+                                        .containerRelativeFrame(.vertical){length, axis in length / 2}
+                                        
+                                   // IconeNuvem()
+                                    /* // botão com RoundedRectangle()
+                                    RoundedRectangle(cornerRadius: 20) // botao aumentar
+                                    .stroke(Color.white, lineWidth: 5)
+                                    .fill(Color.azulInterface)
+                                    .foregroundColor(.white)
+                                    .frame(width: 90, height: 70)
+                                    .position(x: geometry.size.width / 2 + 100, y: geometry.size.width / 2 + 150 )
+                                    .containerRelativeFrame(.vertical){length, axis in length / 2}
+                                     */
+                                    
+                                    ZStack{
+                                        // Marcadores
+                                        Image("Vector 21") // faixa verde
+                                            .resizable()
+                                            .scaledToFit()
+                                            .frame(width: 120, height: 120)
+                                            .position(x: geometry.size.width / 2 - 100, y: geometry.size.width / 2 + 35)
+                                            .containerRelativeFrame(.vertical){length, axis in length / 2}
+                                
+                                        Image("Vector 23") // faixa vermelha
+                                            .resizable()
+                                            .scaledToFit()
+                                            .frame(width: 125, height: 120)
+                                            .position(x: geometry.size.width / 2 + 100, y: geometry.size.width / 2 + 35)
+                                            .containerRelativeFrame(.vertical){length, axis in length / 2}
+                                        
+                                        Image("Vector 22") // faixa amarela
+                                            .resizable()
+                                            .scaledToFit()
+                                            .frame(width: 130, height: 125)
+                                            .position(x: geometry.size.width / 2 - 3, y: geometry.size.width / 2 - 15)
+                                            .containerRelativeFrame(.vertical){length, axis in length / 2}
+                                        
+                                        
+                                    }
+                                }
+                            }
+                        }
                     }
+                   
                     
                 }
              
@@ -87,6 +193,9 @@ struct JogoFabricaView: View {
             .background(Image("Céu Expandido"))
         }.scaledToFit()
         .edgesIgnoringSafeArea(.all)
+        
+        
+        
     }
 }
 
