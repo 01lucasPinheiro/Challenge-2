@@ -13,7 +13,7 @@ struct JogoChuvaView: View {
         ZStack{
             
             
-            Image(viewModel.mapaAtual())
+            Image("")
                 .resizable()
                 .scaledToFill()
                 .ignoresSafeArea()
@@ -22,7 +22,7 @@ struct JogoChuvaView: View {
                     
                 }
                 testedaChuva()
-        }
+        }.background(Image("fundoTelaInicial"))
     }
 }
 #Preview {
