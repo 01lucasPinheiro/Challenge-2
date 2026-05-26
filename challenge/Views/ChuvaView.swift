@@ -1,6 +1,7 @@
 import SwiftUI
 
 struct ChuvaParticulas: View {
+    @Environment(DadosCidadeData.self) var cidadeData
     @State private var iniciarAnimacao = false
 
     let xPosition: CGFloat
@@ -31,8 +32,8 @@ struct ChuvaParticulas: View {
 }
 
 struct testedaChuva: View {
-    var intensidadeChuva = 1000
-    
+    var intensidadeChuva: Int
+
     var body: some View {
         GeometryReader { geometry in
             ZStack {
@@ -42,7 +43,7 @@ struct testedaChuva: View {
                     ChuvaParticulas(
                         xPosition: CGFloat.random(in: 0...geometry.size.width),
                         duration: Double.random(in: 0.6...2),
-                        yInicial: 400,
+                        yInicial: 380,
                         alturaFinalQueda: geometry.size.height + 50
                     )
                 }
@@ -52,5 +53,5 @@ struct testedaChuva: View {
 }
 
 #Preview {
-    testedaChuva()
+    testedaChuva(intensidadeChuva: 1000)
 }

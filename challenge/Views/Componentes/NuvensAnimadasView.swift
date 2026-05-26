@@ -8,29 +8,36 @@
 import SwiftUI
 
 struct NuvensAnimadasView: View {
-    let distancia: CGFloat = -400
+    let quantidade: Int
+    private let posicoes: [CGPoint] = [
+        CGPoint(x: -420, y: -350),
+        CGPoint(x: 450, y: -350),
+        CGPoint(x: 0, y: -350),
+        CGPoint(x: -250, y: -390),
+        CGPoint(x: 320, y: -390),
+        CGPoint(x: 500, y: -390),
+        CGPoint(x: -600, y: -390)
+
+    ]
+    //let distancia: CGFloat = -400
     @State var mover = false
     var body: some View {
-        HStack {
-            
-            Image("nuvens")
-            //movimentacao para o eixo x y continua constante
-                .offset(x: mover ? distancia : 800, y: 0  )
-                .animation(
-                    .linear(duration: 20)
-                    .repeatForever(autoreverses: false),
-                    value: mover
-                )
-            Spacer()
-                            
-        }.frame(width: 1500, height: 1366)
-            .onAppear {
-                mover = true
+        ZStack {
+           
+            ForEach(0..<min(quantidade, posicoes.count), id: \.self) { index in
+                Image("nuvem1")
+                    .interpolation(.none)
+                    .scaleEffect(6)
+                    .offset(x: posicoes[index].x, y: posicoes[index].y)
+                    .transition(.opacity.combined(with: .scale))
             }
+        }
+        .frame(width: 1500, height: 1366)
+        .animation(.easeInOut(duration: 0.3), value: quantidade)
     }
 }
 
 
 #Preview {
-    NuvensAnimadasView()
+    NuvensAnimadasView(quantidade: 10)
 }

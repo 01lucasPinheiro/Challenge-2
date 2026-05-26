@@ -18,9 +18,7 @@ class DadosCidadeData {
     var poluicao: Double = 0.5 {
         didSet { print("Poluição mudou para: \(poluicao)") }
     }
-    
-    // ... suas funções permanecem iguais
-    
+        
     func alterarTemperatura(novoValor: Double) {
         if temperatura <= 100 {
             self.temperatura += novoValor
@@ -32,7 +30,7 @@ class DadosCidadeData {
             self.umidade += novoValor
         }
     }
-        func alterarPoulicao(novoValor: Double) {
+    func alterarPoulicao(novoValor: Double) {
             if poluicao <= 100 {
                 self.poluicao += novoValor
             }

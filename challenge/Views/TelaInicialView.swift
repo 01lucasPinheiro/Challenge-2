@@ -45,7 +45,7 @@ struct testeTela: View {
                                     navegando = true
                                 }
                             
-                            NuvensAnimadasView()
+                            //NuvensAnimadasView(quantidade: 2)
                         }
                         .scaleEffect(escalaAtual)
                         .gesture(

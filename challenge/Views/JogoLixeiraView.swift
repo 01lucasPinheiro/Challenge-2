@@ -12,58 +12,63 @@ struct JogoLixeiraView: View {
     @State private var viewModel = JogoLixeiraViewModel()
     
     var body: some View {
-        VStack {
-            Text("Sua pontuação é: \(viewModel.pontuacao)")
-                .font(.headline)
-            
-            HStack(spacing: 50) {
-                ForEach(0...4, id: \.self) { index in
-                    Image(viewModel.nomeImagemLixeira(para: index))
-                        .background(
-                            GeometryReader { geo in
-                                Color.clear
-                                    .onAppear {
-                                        viewModel.framesLixeiras[index] = geo.frame(in: .named("campoDoJogo"))
-                                    }
-                            }
-                        )
-                }
-            }
-            
+        ZStack{
+            Image("CenarioJogoLixeira")
+                .resizable()
+                .scaledToFit()
             Spacer()
-            
-            HStack(spacing: 100) {
-                ForEach(0..<5, id: \.self) { index in
-                    Circle()
-                        .fill(Color.blue)
-                        .frame(width: 40, height: 40)
-                        .overlay(Text("\(index)").foregroundColor(.white))
-                        .offset(viewModel.posicao[index])
-                    
-                        .opacity(viewModel.circulosVisiveis[index] ? 1.0 : 0.0)
-                        .disabled(!viewModel.circulosVisiveis[index])
-                    
-                        .gesture(
-                            DragGesture(coordinateSpace: .named("campoDoJogo"))
-                                .onChanged { value in
-                                    viewModel.atualizarArrasto(index: index, translacao: value.translation, localizacao: value.location)
+            VStack{
+                Text("Sua pontuação é: \(viewModel.pontuacao)")
+                    .font(.headline)
+                
+                HStack(spacing: 50) {
+                    ForEach(0...4, id: \.self) { index in
+                        Image(viewModel.nomeImagemLixeira(para: index))
+                            .background(
+                                GeometryReader { geo in
+                                    Color.clear
+                                        .onAppear {
+                                            viewModel.framesLixeiras[index] = geo.frame(in: .named("campoDoJogo"))
+                                        }
                                 }
-                                .onEnded { value in
-                                    withAnimation(.easeInOut(duration: 0.2)) {
-                                        viewModel.finalizarArrasto(
-                                            index: index,
-                                            localizacao: value.location,
-                                            cidadeData: cidadeData
-                                        )
-                                    }
-                                }
-                        )
+                            )
+                    }
                 }
+                
+                
+                HStack(spacing: 100) {
+                    ForEach(0..<5, id: \.self) { index in
+                        Circle()
+                            .fill(Color.blue)
+                            .frame(width: 40, height: 40)
+                            .overlay(Text("\(index)").foregroundColor(.white))
+                            .offset(viewModel.posicao[index])
+                        
+                            .opacity(viewModel.circulosVisiveis[index] ? 1.0 : 0.0)
+                            .disabled(!viewModel.circulosVisiveis[index])
+                        
+                            .gesture(
+                                DragGesture(coordinateSpace: .named("campoDoJogo"))
+                                    .onChanged { value in
+                                        viewModel.atualizarArrasto(index: index, translacao: value.translation, localizacao: value.location)
+                                    }
+                                    .onEnded { value in
+                                        withAnimation(.easeInOut(duration: 0.2)) {
+                                            viewModel.finalizarArrasto(
+                                                index: index,
+                                                localizacao: value.location,
+                                                cidadeData: cidadeData
+                                            )
+                                        }
+                                    }
+                            )
+                    }
+                }.frame(maxWidth: 300, maxHeight: 300)
+                
             }
+            .padding()
+            .coordinateSpace(name: "campoDoJogo")
         }
-        .frame(maxWidth: 300, maxHeight: 300)
-        .padding()
-        .coordinateSpace(name: "campoDoJogo")
     }
 }
 

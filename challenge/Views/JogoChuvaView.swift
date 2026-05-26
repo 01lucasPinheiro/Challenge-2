@@ -9,10 +9,9 @@ import SwiftUI
 
 struct JogoChuvaView: View {
     @State private var viewModel = JogoChuvaViewModel()
+    @Environment(DadosCidadeData.self) var cidadeData
     var body: some View {
         ZStack{
-            
-            
             Image("")
                 .resizable()
                 .scaledToFill()
@@ -21,10 +20,13 @@ struct JogoChuvaView: View {
                     viewModel.mudarMapa()
                     
                 }
-                testedaChuva()
+            testedaChuva(intensidadeChuva: viewModel.intensidadeChuva())
+            NuvensAnimadasView(quantidade: viewModel.quantidadenuvens())
+
         }.background(Image("fundoTelaInicial"))
     }
 }
 #Preview {
     JogoChuvaView()
+        .environment(DadosCidadeData())
 }

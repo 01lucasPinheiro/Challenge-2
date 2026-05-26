@@ -73,10 +73,7 @@ struct JogoFabricaView: View {
                         .frame(width: 800, height: 800)
                         .offset(x: -100, y: 230)
                     
-                    ZStack{
-                        Image(
-                          
-                    }
+                
                     
                 }
              

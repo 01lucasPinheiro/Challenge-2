@@ -21,5 +21,27 @@ class JogoChuvaViewModel {
         withAnimation(.easeInOut(duration: 1.0)) {
             indice = (indice + 1) % mapas.count
         }
+        
+//        switch indice {
+//        case 0:
+//            
+//        }
+        
+    }
+    
+    func intensidadeChuva() -> Int {
+        return indice * 0
+    }
+    
+    func quantidadenuvens() -> Int {
+        switch indice {
+        case 0: return 2
+        case 1: return 3
+        case 2: return 4
+        case 3: return 6
+        case 4: return 8
+        default: return 3
+        }
     }
 }
+
