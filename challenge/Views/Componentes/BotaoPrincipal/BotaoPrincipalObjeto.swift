@@ -32,7 +32,13 @@ class BotaoPrincipalObjeto{
         //Cancelar
         BotaoPrincipalClasse(mostrarIcon: false, mostrarTexto: true, icon: "icloud.fill", textoBotao: "Cancelar", radius: 30, corTextoBotao: .botaoTexto, corBotao: .botaoCinza, corBotaoGradiente: .azulGradiente, widthFrame: 212, heightFrame: 58, contornoBranco: false),
         //Reiniciar
-        BotaoPrincipalClasse(mostrarIcon: false, mostrarTexto: true, icon: "icloud.fill", textoBotao: "Reiniciar", radius: 30, corTextoBotao: .botaoTexto, corBotao: .botaoVermelho, corBotaoGradiente: .amareloGradiente, widthFrame: 212, heightFrame: 58, contornoBranco: false)
+        BotaoPrincipalClasse(mostrarIcon: false, mostrarTexto: true, icon: "icloud.fill", textoBotao: "Reiniciar", radius: 30, corTextoBotao: .botaoTexto, corBotao: .botaoVermelho, corBotaoGradiente: .amareloGradiente, widthFrame: 212, heightFrame: 58, contornoBranco: false),
+        
+        // + e -
+        
+        BotaoPrincipalClasse(mostrarIcon: false, mostrarTexto: true, icon: "minus", textoBotao: "—", radius: 20, corTextoBotao: .botaoTexto, corBotao: .botaoAzul, corBotaoGradiente: .azulGradiente, widthFrame: 75, heightFrame: 60, contornoBranco: true),
+        BotaoPrincipalClasse(mostrarIcon: true, mostrarTexto: false, icon: "plus", textoBotao: "soma", radius: 20, corTextoBotao: .botaoTexto, corBotao: .botaoAzul, corBotaoGradiente: .azulGradiente, widthFrame: 75, heightFrame: 60, contornoBranco: true)
+        
     ]
         
 }

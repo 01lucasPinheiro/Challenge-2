@@ -134,11 +134,17 @@ struct JogoFabricaView: View {
                                     // Botões de aumentar e subtrair
                                   
                                     
-                                    ButtonsComponent(mostrarIcon: false, icon: "arrow.forward", textoBotao: "-", radius: 20, corTextoBotao: .botaoTexto, corBotao: .botaoAzul, corBotaoGradiente: .azulGradiente, widthFrame: 90, heightFrame: 70, contornoBranco: true, tela: ContentView())
+                                    ButtonsComponent(
+                                        botao: BotaoPrincipalObjeto.ArrayBotoes[11],
+                                        tela: ContentView()
+                                    )
                                         .position(x: geometry.size.width / 2 - 100, y: geometry.size.width / 2 + 150 )
                                         .containerRelativeFrame(.vertical){length, axis in length / 2}
                                     
-                                    ButtonsComponent(mostrarIcon: false, icon: "arrow.forward", textoBotao: "+", radius: 20, corTextoBotao: .botaoTexto, corBotao: .botaoAzul, corBotaoGradiente: .azulGradiente, widthFrame: 90, heightFrame: 70, contornoBranco: true, tela: ContentView())
+                                    ButtonsComponent(
+                                        botao: BotaoPrincipalObjeto.ArrayBotoes[12],
+                                        tela: ContentView()
+                                    )
                                         .position(x: geometry.size.width / 2 + 100, y: geometry.size.width / 2 + 150 )
                                         .containerRelativeFrame(.vertical){length, axis in length / 2}
                                         
