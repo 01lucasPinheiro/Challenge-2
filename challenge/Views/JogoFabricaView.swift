@@ -16,55 +16,70 @@ struct JogoFabricaView: View {
             
             
             ZStack{
-             
                 
-                    Image("Prédio 2")
-                        .interpolation(.none)
-                        .resizable(resizingMode: .stretch)
-                        .aspectRatio(contentMode: .fill)
-                        .frame(width: 200, height: 200)
-                        .offset(x: -100, y: 130)
-                    Image("Prédio 1")
-                        .interpolation(.none)
-                        .resizable(resizingMode: .stretch)
-                        .aspectRatio(contentMode: .fill)
-                        .frame(width: 200, height: 200)
-                        .offset(x: 150, y: 130)
-                    
-                    
-                    Image("usina 1")
-                        .interpolation(.none)
-                        .resizable(resizingMode: .stretch)
-                        .aspectRatio(contentMode: .fill)
-                        .frame(width: 433, height: 282)
-                        .offset(x: -230, y: 280)
-                    Image("usina 2")
+                
+                Image("Prédio 2")
+                    .interpolation(.none)
+                    .resizable(resizingMode: .stretch)
+                    .aspectRatio(contentMode: .fill)
+                    .frame(width: 200, height: 200)
+                    .offset(x: -100, y: 130)
+                Image("Prédio 1")
+                    .interpolation(.none)
+                    .resizable(resizingMode: .stretch)
+                    .aspectRatio(contentMode: .fill)
+                    .frame(width: 200, height: 200)
+                    .offset(x: 150, y: 130)
+                
+                
+                Image("usina")
+                    .interpolation(.none)
+                    .resizable(resizingMode: .stretch)
+                    .aspectRatio(contentMode: .fill)
+                    .frame(width: 433, height: 282)
+                    .offset(x: -230, y: 280)
+                Image("usina")
+                    .interpolation(.none)
+                    .resizable()
+                    .aspectRatio(contentMode: .fill)
+                    .frame(width: 433, height: 282)
+                    .offset(x: -1100, y: 290)
+                
+                
+                
+                
+                Image("Fábrica Expandida")
+                    .interpolation(.none)
+                    .resizable()
+                    .resizable(resizingMode: .stretch)
+                    .scaledToFit()
+                    .offset(x: -600, y: 130)
+                // .frame(width: geometry.size.width , height: geometry.size.height)
+                
+                
+                Image("Cercado Expandido")
+                    .interpolation(.none)
+                    .resizable(resizingMode: .stretch)
+                    .scaledToFill()
+                    .padding(.bottom, 80)
+                    .ignoresSafeArea()
+                    .offset(x: -400, y: 130)
+                ZStack{
+                    Image("Placa")
                         .interpolation(.none)
                         .resizable()
-                        .aspectRatio(contentMode: .fill)
-                        .frame(width: 433, height: 282)
-                        .offset(x: -1100, y: 290)
-                        
-                    
-                    
-                    
-                    Image("Fábrica Expandida")
-                        .interpolation(.none)
-                        .resizable()
-                        .resizable(resizingMode: .stretch)
+                        //Scale(0.6)
                         .scaledToFit()
-                        .offset(x: -600, y: 130)
-                    // .frame(width: geometry.size.width , height: geometry.size.height)
+                        .frame(width: 800, height: 800)
+                        .offset(x: -100, y: 230)
                     
+                    ZStack{
+                        Image(
+                          
+                    }
                     
-                    Image("Cercado Expandido")
-                        .interpolation(.none)
-                        .resizable(resizingMode: .stretch)
-                        .scaledToFill()
-                        .padding(.bottom, 80)
-                        .ignoresSafeArea()
-                        .offset(x: -400, y: 130)
-                
+                }
+             
             }
             .frame(
                 maxWidth: .infinity, maxHeight: .infinity
