@@ -51,10 +51,14 @@ struct NuvemMovimentoView: View {
             
             // Nuvem com animação
             ZStack {
-                Image("Nuvem_2")
+                Image("nuvem 1")
+                    .interpolation(.none)
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width: 500, height: 500)
             }
-            .foregroundColor(.white.opacity(0.8))
-            .offset(x: moveCloud ? -200 : 200, y: -800)
+            .foregroundColor(.white.opacity(0.5))
+            .offset(x: moveCloud ? -200 : 200, y: -100)
             .animation(
                 Animation.linear(duration: 28)
                     .repeatForever(autoreverses: false),
