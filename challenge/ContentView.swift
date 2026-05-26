@@ -8,7 +8,7 @@
 import SwiftUI
 struct ContentView: View {
     var body: some View {
-        testeTela()
+        Legenda()
 
     }
     //    @State private var meucarro = Carro()
