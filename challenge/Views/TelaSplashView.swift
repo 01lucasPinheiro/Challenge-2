@@ -14,13 +14,14 @@ struct TelaSplashView: View {
     @State private var pulsar = false
     @State private var iniciar = false
     
+    
     var body: some View {
      
         GeometryReader { geometry in
             
             if iniciar {
                 TelaMenuView()
-            }
+            }else{
 
             ZStack {
 
@@ -46,13 +47,14 @@ struct TelaSplashView: View {
                         withAnimation(.easeInOut(duration: 2.0).repeatForever(autoreverses: true)) {
                             pulsar = true
                         }
-                            
+                        
                         DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
-
-                          withAnimation {
-                              iniciar = true
-                          }
+                            
+                            withAnimation {
+                                iniciar = true
+                            }
                         }
+                    }
                 }
           }
       }
@@ -60,4 +62,6 @@ struct TelaSplashView: View {
 }
 #Preview {
     TelaSplashView()
+        .environment(DadosCidadeData())
+
 }
