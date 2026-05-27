@@ -187,8 +187,8 @@ struct JogoFabricaView: View {
                                                                 .containerRelativeFrame(.vertical){length, axis in length / 2}
                                                          
                                                             Medidor()
-                                                                .position(x: geometry.size.width / 2, y: geometry.size.height / 2 + 255)
-                                                                .containerRelativeFrame(.vertical){length, axis in length}
+                                                                    .position(x: geometry.size.width / 2, y: geometry.size.width / 2 + 10)
+                                                                    .containerRelativeFrame(.vertical){length, axis in length / 2}
                                                             // circulo central
                                                             Circle()
                                                                 .fill(Color.botaoTexto)
@@ -197,14 +197,26 @@ struct JogoFabricaView: View {
                                                                 .position(x: geometry.size.width / 2, y: geometry.size.width / 2 + 100)
                                                                 .containerRelativeFrame(.vertical){length, axis in length / 2}
                                                             
+                                                            CaixaDeTexto(index: 1)
+                                                                .position(x: geometry.size.width / 2)
+                                                                .containerRelativeFrame(.vertical){length, axis in length}
+                                                                .padding(.top, 270)
+                                                            
+                                                            Image("Emissão de Poluentes")
+                                                              .position(x: geometry.size.width / 2)
+                                                              .containerRelativeFrame(.vertical){length, axis in length}
+                                                              .padding(.top, 70)
+                                                             // .foregroundColor(Color(red: 0.1, green: 0.4, blue: 0.62))
+                                                            
                                                             
                                                         }
                                                     }
                                                 }
                                             }
-                                        }.scaleEffect(0.9)
-                        .position(x: geometry.size.width, y: geometry.size.height / 1.9)
-                                        .padding(.bottom, geometry.safeAreaInsets.bottom) // ajustar menu para a parte de baixo da tela , adequando-se a safearea e de forma responsiva
+                    }.scaleEffect(x: geometry.size.width / geometry.size.width, y: geometry.size.height / geometry.size.height)
+                        .position(x: geometry.size.width, y: geometry.size.height / 2)
+                        //.padding(.bottom, geometry.size.height)
+                        .safeAreaPadding(.vertical, -20)// ajustar menu para a parte de baixo da tela , adequando-se a safearea e de forma responsiva
                    
                     
                 }
@@ -215,8 +227,7 @@ struct JogoFabricaView: View {
             )
             .background(Image("Céu Expandido"))
         }.scaledToFit()
-        
-        .edgesIgnoringSafeArea(.all)
+      //  .edgesIgnoringSafeArea(.all)
         
         
         

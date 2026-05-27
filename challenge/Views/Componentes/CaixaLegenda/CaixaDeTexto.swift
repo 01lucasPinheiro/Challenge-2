@@ -35,12 +35,12 @@ struct CaixaDeTexto: View {
                 Text(mensagem[index])
                     .font(
                     Font.custom("Poppins", size: 20)
-                    .weight(.medium)
+                    .weight(.bold)
                     )
                     .multilineTextAlignment(.center)
                     .foregroundColor(Color.azulTexto)
 
-                    .frame(width: 655, height: 70, alignment: .center)
+                    .frame(width: 805, height: 170, alignment: .center)
                     .padding(.leading, -80)
                     
                 Button {

@@ -95,7 +95,7 @@ struct PonteiroView: View {
 
     var body: some View {
         Capsule()
-            .fill(Color.primary)
+            .fill(Color.black)
             .frame(width: 8, height: 120)
             .offset(y: 0)
             .rotationEffect(
