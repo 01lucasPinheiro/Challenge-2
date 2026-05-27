@@ -130,6 +130,14 @@ struct JogoFabricaView: View {
                                     .position(x: geometry.size.width / 2, y: geometry.size.width / 2 + 40)
                                     .containerRelativeFrame(.vertical){length, axis in length / 2}
                                 
+                                // circulo central
+                                Circle()
+                                    .fill(Color.botaoTexto)
+                                    .stroke(Color.botaoCinza, lineWidth: 5)
+                                    .frame(width: 40, height: 40)
+                                    .position(x: geometry.size.width / 2, y: geometry.size.width / 2 + 100)
+                                    .containerRelativeFrame(.vertical){length, axis in length / 2}
+                                
                                 ZStack{
                                     // Botões de aumentar e subtrair
                                   
@@ -148,16 +156,13 @@ struct JogoFabricaView: View {
                                         .position(x: geometry.size.width / 2 + 100, y: geometry.size.width / 2 + 150 )
                                         .containerRelativeFrame(.vertical){length, axis in length / 2}
                                         
-                                   // IconeNuvem()
-                                    /* // botão com RoundedRectangle()
-                                    RoundedRectangle(cornerRadius: 20) // botao aumentar
-                                    .stroke(Color.white, lineWidth: 5)
-                                    .fill(Color.azulInterface)
-                                    .foregroundColor(.white)
-                                    .frame(width: 90, height: 70)
-                                    .position(x: geometry.size.width / 2 + 100, y: geometry.size.width / 2 + 150 )
+                                    ButtonsComponent(
+                                        botao: BotaoPrincipalObjeto.ArrayBotoes[8],
+                                        tela: ContentView()
+                                    )
+                                    .position(x: geometry.size.width / 2 + 340, y: geometry.size.width / 2 + 150 )
                                     .containerRelativeFrame(.vertical){length, axis in length / 2}
-                                     */
+                                  
                                     
                                     ZStack{
                                         // Marcadores

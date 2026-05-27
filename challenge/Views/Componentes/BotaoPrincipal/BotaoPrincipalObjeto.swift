@@ -27,7 +27,7 @@ class BotaoPrincipalObjeto{
         BotaoPrincipalClasse(mostrarIcon: false, mostrarTexto: true, icon: "icloud.fill", textoBotao: "Ok", radius: 30, corTextoBotao: .botaoTexto, corBotao: .botaoVerde, corBotaoGradiente: .azulGradiente, widthFrame: 100, heightFrame: 58, contornoBranco: true),
         
         //Verificar Efeito
-        BotaoPrincipalClasse(mostrarIcon: false, mostrarTexto: true, icon: "icloud.fill", textoBotao: "Verificar Efeito", radius: 30, corTextoBotao: .botaoTexto, corBotao: .botaoAzul, corBotaoGradiente: .azulGradiente, widthFrame: 300, heightFrame: 50, contornoBranco: false),
+        BotaoPrincipalClasse(mostrarIcon: false, mostrarTexto: true, icon: "icloud.fill", textoBotao: "Verificar Efeito", radius: 15, corTextoBotao: .botaoTexto, corBotao: .botaoAzul, corBotaoGradiente: .azulGradiente, widthFrame: 300, heightFrame: 50, contornoBranco: true),
         
         //Cancelar
         BotaoPrincipalClasse(mostrarIcon: false, mostrarTexto: true, icon: "icloud.fill", textoBotao: "Cancelar", radius: 30, corTextoBotao: .botaoTexto, corBotao: .botaoCinza, corBotaoGradiente: .azulGradiente, widthFrame: 212, heightFrame: 58, contornoBranco: false),

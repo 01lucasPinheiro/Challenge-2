@@ -20,9 +20,10 @@ struct ButtonsComponent<Destino: View>: View {
             ZStack {
                 if botao.contornoBranco {
                     RoundedRectangle(cornerRadius: botao.radius)
-                        .frame(width: botao.widthFrame + 7, height: botao.heightFrame + 7)
-                        .background(Color.white)
-                        .cornerRadius(botao.radius)
+                        .stroke(Color.white, lineWidth: 4)
+                        .frame(width: botao.widthFrame, height: botao.heightFrame)
+                      //  .background(Color.white)
+                       // .cornerRadius(botao.radius)
 
                 }
                 HStack {
