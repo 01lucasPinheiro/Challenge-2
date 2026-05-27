@@ -40,6 +40,7 @@ struct testeTela: View {
                             Image(mapa)
                                 .frame(width: 2488, height: 1861)
                             
+                            
                             Image("logoChuva")
                                 .resizable()
                                 .frame(width: 100, height: 100)
