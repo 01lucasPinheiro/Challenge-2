@@ -34,7 +34,7 @@ struct testeTela: View {
     var body: some View {
         NavigationStack {
             ZStack {
-                ScrollView([.horizontal, .vertical], showsIndicators: false) {
+                ScrollView([.horizontal, .vertical], showsIndicators: true) {
                     ScrollViewReader { proxy in
                         ZStack {
                             Image(mapa)
