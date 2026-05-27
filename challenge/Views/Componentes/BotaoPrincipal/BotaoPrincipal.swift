@@ -7,6 +7,20 @@
 
 import Foundation
 import SwiftUI
+
+
+struct RoundedButtonStyle: ButtonStyle {
+    let radius: CGFloat
+    
+    func makeBody(configuration: Configuration) -> some View {
+        configuration.label
+            .opacity(configuration.isPressed ? 0.8 : 1.0) // efeito
+            .scaleEffect(configuration.isPressed ? 0.97 : 1.0) // encolhimento
+            .animation(.easeInOut(duration: 0.1), value: configuration.isPressed)
+    }
+}
+
+
 struct ButtonsComponent<Destino: View>: View {
     
     let botao: BotaoPrincipalClasse
@@ -55,10 +69,12 @@ struct ButtonsComponent<Destino: View>: View {
                 
             }
             // Quando irParaTela for true, ele abre a variável 'tela'
+            .contentShape(RoundedRectangle(cornerRadius: botao.radius))
             .navigationDestination(isPresented: $irParaTela) {
                 tela
             }
         }
+        .buttonStyle(RoundedButtonStyle(radius: botao.radius))
     }
 }
 //#Preview {
