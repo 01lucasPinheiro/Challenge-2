@@ -43,7 +43,7 @@ struct testedaChuva: View {
                     ChuvaParticulas(
                         xPosition: CGFloat.random(in: 0...geometry.size.width),
                         duration: Double.random(in: 0.6...2),
-                        yInicial: 480,
+                        yInicial: 450,
                         alturaFinalQueda: geometry.size.height + 50
                     )
                 }

@@ -17,7 +17,7 @@ struct JogoLixeiraView: View {
                 .resizable()
                 .interpolation(.none)
                 .ignoresSafeArea()
-
+                        
             //Spacer()
             VStack{
 
@@ -67,7 +67,12 @@ struct JogoLixeiraView: View {
             }
             .padding()
             .coordinateSpace(name: "campoDoJogo")
+            VStack{
+                CaixaDeTexto(index: 2)
+                Spacer()
+            }.padding(100)
         }
+        
     }
 }
 

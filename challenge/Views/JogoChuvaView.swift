@@ -11,7 +11,7 @@ struct JogoChuvaView: View {
     @State private var viewModel = JogoChuvaViewModel()
     @Environment(DadosCidadeData.self) var cidadeData
     var body: some View {
-        ZStack{
+        ZStack(){
             Image("")
                 .resizable()
                 .scaledToFill()
@@ -22,7 +22,12 @@ struct JogoChuvaView: View {
                 }
             testedaChuva(intensidadeChuva: viewModel.intensidadeChuva())
             NuvensAnimadasView(quantidade: viewModel.quantidadenuvens())
-
+            
+            VStack {
+                CaixaDeTexto(index: 0)
+                    .padding(250)
+                Spacer()
+            }
         }.background(Image("fundoTelaInicial"))
     }
 }
