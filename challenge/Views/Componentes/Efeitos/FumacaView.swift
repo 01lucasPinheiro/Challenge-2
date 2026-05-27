@@ -19,6 +19,8 @@ struct FumacaView: View {
     
     let timer2 = Timer.publish(every: .random(in: 0.1...1.5), on: .main, in: .common).autoconnect()
     
+    @State var ligada: Bool = true
+    
     var body: some View {
         
         
@@ -31,37 +33,37 @@ struct FumacaView: View {
                 .background(
                     GeometryReader { geo in
                         
-                        
-                        ZStack{
-                            ForEach(particulas) { p in EfeitoFumacaView()
-                                // .position(x: 0, y: 400) // posição em x da primeira particula
-                            }
+                        if ligada {
                             ZStack{
                                 ForEach(particulas) { p in EfeitoFumacaView()
-                                    //  .position(x: 0, y: 400) // posicao em x da segunda particula
+                                    // .position(x: 0, y: 400) // posição em x da primeira particula
                                 }
-                                
-                            }
-                            .frame(maxWidth: .infinity, maxHeight: .infinity)
-                            //  .background(Color.black)
-                            .onReceive(timer2) { _ in
-                                let x = CGFloat.random(in: -100 ..< 250)
-                                particulas.append(efeitoFumaca(x: x))
-                                if particulas.count > 51 {
-                                    particulas.removeFirst()
+                                ZStack{
+                                    ForEach(particulas) { p in EfeitoFumacaView()
+                                        //  .position(x: 0, y: 400) // posicao em x da segunda particula
+                                    }
+                                    
                                 }
-                            }
-                        }.scaleEffect(1.4)
-                            .frame(maxWidth: .infinity, maxHeight: .infinity)
-                        // .background(Color.black)
-                            .onReceive(timer) { _ in
-                                let x = CGFloat.random(in: -350 ..< -100)
-                                particulas.append(efeitoFumaca(x: x))
-                                if particulas.count > 51 {
-                                    particulas.removeFirst()
+                                .frame(maxWidth: .infinity, maxHeight: .infinity)
+                                //  .background(Color.black)
+                                .onReceive(timer2) { _ in
+                                    let x = CGFloat.random(in: -100 ..< 250)
+                                    particulas.append(efeitoFumaca(x: x))
+                                    if particulas.count > 51 {
+                                        particulas.removeFirst()
+                                    }
                                 }
-                            }.scaleEffect(1)
-                        
+                            }.scaleEffect(1.4)
+                                .frame(maxWidth: .infinity, maxHeight: .infinity)
+                            // .background(Color.black)
+                                .onReceive(timer) { _ in
+                                    let x = CGFloat.random(in: -350 ..< -100)
+                                    particulas.append(efeitoFumaca(x: x))
+                                    if particulas.count > 51 {
+                                        particulas.removeFirst()
+                                    }
+                                }.scaleEffect(1)
+                        }
                     }
                 ).scaleEffect(0.5)
                 
