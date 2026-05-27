@@ -11,9 +11,9 @@ class BotaoPrincipalObjeto{
     public static let ArrayBotoes = [
         
         //Tela Inicial
-        BotaoPrincipalClasse(mostrarIcon: false, mostrarTexto: true, icon: "icloud.fill", textoBotao: "Iniciar", radius: 30, corTextoBotao: .botaoTexto, corBotao: .botaoAzul, corBotaoGradiente: .azulGradiente, widthFrame: 300, heightFrame: 50, contornoBranco: false),
-        BotaoPrincipalClasse(mostrarIcon: false, mostrarTexto: true, icon: "icloud.fill", textoBotao: "Configurações", radius: 30, corTextoBotao: .botaoTexto, corBotao: .botaoAzul, corBotaoGradiente: .azulGradiente, widthFrame: 300, heightFrame: 50, contornoBranco: false),
-        BotaoPrincipalClasse(mostrarIcon: false, mostrarTexto: true, icon: "icloud.fill", textoBotao: "Sobre o Aplicativo", radius: 30, corTextoBotao: .botaoTexto, corBotao: .botaoAzul, corBotaoGradiente: .azulGradiente, widthFrame: 300, heightFrame: 50, contornoBranco: false),
+        BotaoPrincipalClasse(mostrarIcon: false, mostrarTexto: true, icon: "icloud.fill", textoBotao: "Iniciar", radius: 30, corTextoBotao: .botaoTexto, corBotao: .botaoAzul, corBotaoGradiente: .azulGradiente, widthFrame: 350, heightFrame: 60, contornoBranco: false),
+        BotaoPrincipalClasse(mostrarIcon: false, mostrarTexto: true, icon: "icloud.fill", textoBotao: "Configurações", radius: 30, corTextoBotao: .botaoTexto, corBotao: .botaoAzul, corBotaoGradiente: .azulGradiente, widthFrame: 350, heightFrame: 60, contornoBranco: false),
+        BotaoPrincipalClasse(mostrarIcon: false, mostrarTexto: true, icon: "icloud.fill", textoBotao: "Sobre o Aplicativo", radius: 30, corTextoBotao: .botaoTexto, corBotao: .botaoAzul, corBotaoGradiente: .azulGradiente, widthFrame: 350, heightFrame: 60, contornoBranco: false),
         
         //Reiniciar
         BotaoPrincipalClasse(mostrarIcon: false, mostrarTexto: true, icon: "icloud.fill", textoBotao: "Reiniciar Simulação", radius: 30, corTextoBotao: .botaoTexto, corBotao: .botaoVermelho, corBotaoGradiente: .amareloGradiente, widthFrame: 300, heightFrame: 50, contornoBranco: false),

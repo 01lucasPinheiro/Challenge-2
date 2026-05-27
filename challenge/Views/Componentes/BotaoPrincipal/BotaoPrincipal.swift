@@ -8,18 +8,20 @@
 import Foundation
 import SwiftUI
 
-//struct RoundedButtonStyle: ButtonStyle {
-//    let radius: CGFloat
-//    
-//    func makeBody(configuration: Configuration) -> some View {
-//        configuration.label
-//            .opacity(configuration.isPressed ? 0.8 : 1.0) // efeito
-//            .scaleEffect(configuration.isPressed ? 0.97 : 1.0) // encolhimento
-//            .animation(.easeInOut(duration: 0.1), value: configuration.isPressed)
-//    }
-//}
-//
-//
+//CÓDIGO PARA RETIRAR O BRANCO TRANSPARENTE DO REDOR DO BOTÃO
+
+struct RoundedButtonStyle: ButtonStyle {
+    let radius: CGFloat
+    
+    func makeBody(configuration: Configuration) -> some View {
+        configuration.label
+            .opacity(configuration.isPressed ? 0.8 : 1.0) // efeito
+            .scaleEffect(configuration.isPressed ? 0.97 : 1.0) // encolhimento
+            .animation(.easeInOut(duration: 0.1), value: configuration.isPressed)
+    }
+}
+
+//CÓDIGO BOTÃO PRINCIPAL
 
 struct ButtonsComponent: View {
     
@@ -57,7 +59,7 @@ struct ButtonsComponent: View {
                     LinearGradient(
                         stops: [
                             Gradient.Stop(color: botao.corBotao, location: 0.0),
-                            Gradient.Stop(color: botao.corBotaoGradiente, location: 3),
+                            Gradient.Stop(color: botao.corBotaoGradiente, location: 2.5),
                         ],
                         
                         startPoint: .top,
@@ -66,7 +68,9 @@ struct ButtonsComponent: View {
                 )
                 .cornerRadius(botao.radius)
             }
+            .contentShape(RoundedRectangle(cornerRadius: botao.radius))
         }
+        .buttonStyle(RoundedButtonStyle(radius: botao.radius))
     }
 }
             
