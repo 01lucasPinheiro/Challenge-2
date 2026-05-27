@@ -12,9 +12,9 @@ struct testeApp: App {
     @State private var cidadeData = DadosCidadeData()
     var body: some Scene {
         WindowGroup {
-            JogoFabricaView()
+            testeTela()
             //testeTela()
-                //.environment(cidadeData)
+                .environment(cidadeData)
         }
     }
 }

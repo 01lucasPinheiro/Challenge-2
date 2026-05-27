@@ -34,13 +34,48 @@ struct testeTela: View {
     var body: some View {
         NavigationStack {
             ZStack {
+                Image("fundoTelaInicial")
+                    .resizable()
+                    .interpolation(.none)
+                    .ignoresSafeArea()
+                GeometryReader { geo in
+                    let larguraNuvem: CGFloat = 900
+                    let alturaNuvem: CGFloat = 400
+                    let margem: CGFloat = 200
+                    
+                    Image("npd")
+                        .resizable()
+                        .position(
+                            x: geo.size.width - (larguraNuvem / 2) - margem,
+                            y: geo.size.height - (alturaNuvem / 2) - margem
+                        )
+                    
+                    Image("npc")
+                        .resizable()
+                        .position(
+                            x: (larguraNuvem / 2 ) + margem,
+                            y: (alturaNuvem ) + margem
+                        )
+                    
+                    
+                    Image("npe")
+                        .resizable()
+                        .position(
+                            x: (larguraNuvem / 2) + margem,
+                            y: geo.size.height - (alturaNuvem / 2) - margem
+                        )
+                }
+                .allowsHitTesting(false) //impede o bloquieo de cliques
+                
+                
                 ScrollView([.horizontal, .vertical], showsIndicators: false) {
                     ScrollViewReader { proxy in
                         ZStack {
                             Image(mapa)
                                 .frame(width: 2488, height: 1861)
-                            Image("predios")
                             
+                            
+                            Image("predios")
                             
                             Image("logoChuva")
                                 .resizable()
@@ -84,8 +119,8 @@ struct testeTela: View {
                     }
                 }
                 
-                
                 ZStack{
+                    
                     VStack{
                         HStack {
                             Legenda(caixa: LegendaObjeto.arrayCaixas[0]) {
@@ -95,40 +130,40 @@ struct testeTela: View {
                                         legenda: ConteudoLegendaObjeto.ArrayLegenda[0])
                                     ConteudoLegenda(
                                         legenda: ConteudoLegendaObjeto.ArrayLegenda[1])
-                                   ConteudoLegenda(
-                                       legenda: ConteudoLegendaObjeto.ArrayLegenda[2])
-                                   }
-                               }
+                                    ConteudoLegenda(
+                                        legenda: ConteudoLegendaObjeto.ArrayLegenda[2])
+                                }
+                            }
                             
                             Spacer()
-                            
-                            
+
                             Legenda(caixa: LegendaObjeto.arrayCaixas[1]) {
                                 VStack(alignment: .leading) {
                                     TermometroView(temperatura: cidadeData.poluicao, index: 0)
                                     TermometroView(temperatura: cidadeData.temperatura, index: 1)
                                     TermometroView(temperatura: cidadeData.umidade, index: 2)
                                 }
+                                
                             }
                             .padding(.top, 70)
-                            
                         }
                     }
                     
                 }.frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .bottom)
                     .padding()
                 
-            }.background(Image("fundoTelaInicial"))
-                .navigationDestination(item: $jogoSelecionado) { jogo in
-                    switch jogo {
-                    case .chuva:
-                        JogoChuvaView()
-                    case .lixeira:
-                        JogoLixeiraView()
-                    case .fabrica:
-                        JogoFabricaView()
-                    }
+            }
+            
+            .navigationDestination(item: $jogoSelecionado) { jogo in
+                switch jogo {
+                case .chuva:
+                    JogoChuvaView()
+                case .lixeira:
+                    JogoLixeiraView()
+                case .fabrica:
+                    JogoFabricaView()
                 }
+            }
         }
     }
 }
