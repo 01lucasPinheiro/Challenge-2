@@ -10,29 +10,30 @@ import Observation
 
 @Observable
 class JogoChuvaViewModel {
-    private var indice: Int = 0
-    private var mapas: [String] = ["sc", "c1", "c2", "c3", "c4"]
+    private var indice: Int
+    private var numerosMapas = 5
     
-    func mapaAtual() -> String {
-        return mapas[indice]
+    init(indice: Int) {
+        self.indice = indice
     }
+
     
     func mudarMapa(cidadeData: DadosCidadeData) {
         withAnimation(.easeInOut(duration: 1.0)) {
-            indice = (indice + 1) % mapas.count
+            indice = (indice + 1) % numerosMapas
         }
         
         switch indice {
         case 0:
-            cidadeData.alterarUmidade(novoValor: -0.05)
+            cidadeData.alterarUmidade(novoValor: 0)
         case 1:
-            cidadeData.alterarUmidade(novoValor: -0.05)
+            cidadeData.alterarUmidade(novoValor: 0.25)
         case 2:
-            cidadeData.alterarUmidade(novoValor: 0.05)
+            cidadeData.alterarUmidade(novoValor: 0.50)
         case 3:
-            cidadeData.alterarUmidade(novoValor: 0.05)
+            cidadeData.alterarUmidade(novoValor: 0.75)
         case 4:
-            cidadeData.alterarUmidade(novoValor: 0.05)
+            cidadeData.alterarUmidade(novoValor: 1)
         default:
             cidadeData.alterarUmidade(novoValor: 0)
         }

@@ -26,10 +26,10 @@ class DadosCidadeData {
     }
     
     func alterarUmidade(novoValor: Double) {
-        if umidade <= 100 {
-            self.umidade += novoValor
-        }
+        
+        self.umidade = novoValor
     }
+    
     func alterarPoulicao(novoValor: Double) {
             if poluicao <= 100 {
                 self.poluicao += novoValor

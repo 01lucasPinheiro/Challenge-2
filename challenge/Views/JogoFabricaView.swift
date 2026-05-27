@@ -16,7 +16,7 @@ import Combine
 import Foundation
 
 struct JogoFabricaView: View {
-   @State private var viewModel = JogoChuvaViewModel()
+    @State private var viewModel = JogoChuvaViewModel(indice: 0)
    
    
  

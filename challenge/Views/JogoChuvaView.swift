@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct JogoChuvaView: View {
-    @State private var viewModel = JogoChuvaViewModel()
+    @State private var viewModel = JogoChuvaViewModel(indice: 0)
     @Environment(DadosCidadeData.self) var cidadeData
     var body: some View {
         ZStack(){
@@ -26,10 +26,15 @@ struct JogoChuvaView: View {
             VStack {
                 CaixaDeTexto(index: 0)
                     .padding(250)
+                Image(systemName: "hand.tap.fill")
+                    .font(.system(size: 50))
+                    .foregroundColor(.white)
+                    .shadow(radius: 5)
                 Spacer()
             }
         }.background(Image("fundoTelaInicial"))
     }
+    
 }
 #Preview {
     JogoChuvaView()
