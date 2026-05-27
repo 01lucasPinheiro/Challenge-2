@@ -10,9 +10,12 @@ import SwiftUI
 
 struct TelaSplashView: View {
     
-    @State private var aparecer = false
-    @State private var pulsar = false
-    @State private var iniciar = false
+    @State private var aparecer : Bool = false
+    @State private var pulsar: Bool = false
+    @State private var iniciar: Bool = false
+    @State private var navegar = 0
+    
+    let timer = Timer.publish(every: 1.0, on: .main, in: .common)
     
     
     var body: some View {
@@ -21,7 +24,8 @@ struct TelaSplashView: View {
             
             if iniciar {
                 TelaMenuView()
-            }else{
+            }
+            else{
 
             ZStack {
 
@@ -49,10 +53,11 @@ struct TelaSplashView: View {
                         }
                         
                         DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
-                            
-                            withAnimation {
-                                iniciar = true
-                            }
+
+                          withAnimation {
+                              iniciar = true
+                          }
+                          
                         }
                     }
                 }

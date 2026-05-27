@@ -21,12 +21,17 @@ struct TelaMenuView: View {
                     .interpolation(.none)
                     .ignoresSafeArea()
                 
-                VStack (spacing: 35){
+                VStack (spacing: 30){
                     
                     Image("Logo")
                         .resizable()
                         .scaledToFit()
-                        .frame(maxWidth: 200, maxHeight: 200)
+                        .frame(maxWidth: 250, maxHeight: 250)
+                    
+                    Text("Simb")
+                        .font(.system(size: 75, weight: .bold))
+                        .foregroundColor(Color.white)
+                        
                     
                     
                         ButtonsComponent(
@@ -63,7 +68,7 @@ struct TelaMenuView: View {
                     RoundedRectangle(cornerRadius: 30)
                         .stroke(Color.azulInterface.opacity(0.8), lineWidth: 1)
                 )
-                .shadow(color: .black.opacity(0.10), radius: 12, x: 0, y: 6)
+                .shadow(color: .black.opacity(0.01), radius: 12, x: 0, y: 6)
                 
                 
                 
