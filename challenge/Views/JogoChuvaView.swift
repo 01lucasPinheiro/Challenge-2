@@ -17,7 +17,7 @@ struct JogoChuvaView: View {
                 .scaledToFill()
                 .ignoresSafeArea()
                 .onTapGesture{
-                    viewModel.mudarMapa()
+                    viewModel.mudarMapa(cidadeData: cidadeData)
                     
                 }
             testedaChuva(intensidadeChuva: viewModel.intensidadeChuva())

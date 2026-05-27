@@ -10,9 +10,9 @@ import SwiftUI
 struct NuvensAnimadasView: View {
     let quantidade: Int
     private let posicoes: [CGPoint] = [
-        CGPoint(x: -420, y: -350),
-        CGPoint(x: 450, y: -350),
-        CGPoint(x: 0, y: -350),
+        CGPoint(x: -420, y: -330),
+        CGPoint(x: 450, y: -330),
+        CGPoint(x: 0, y: -330),
         CGPoint(x: -250, y: -390),
         CGPoint(x: 320, y: -390),
         CGPoint(x: 500, y: -390),

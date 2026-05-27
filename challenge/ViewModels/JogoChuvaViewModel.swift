@@ -17,20 +17,30 @@ class JogoChuvaViewModel {
         return mapas[indice]
     }
     
-    func mudarMapa() {
+    func mudarMapa(cidadeData: DadosCidadeData) {
         withAnimation(.easeInOut(duration: 1.0)) {
             indice = (indice + 1) % mapas.count
         }
         
-//        switch indice {
-//        case 0:
-//            
-//        }
+        switch indice {
+        case 0:
+            cidadeData.alterarUmidade(novoValor: -0.05)
+        case 1:
+            cidadeData.alterarUmidade(novoValor: -0.05)
+        case 2:
+            cidadeData.alterarUmidade(novoValor: 0.05)
+        case 3:
+            cidadeData.alterarUmidade(novoValor: 0.05)
+        case 4:
+            cidadeData.alterarUmidade(novoValor: 0.05)
+        default:
+            cidadeData.alterarUmidade(novoValor: 0)
+        }
         
     }
     
     func intensidadeChuva() -> Int {
-        return indice * 0
+        return indice * 400
     }
     
     func quantidadenuvens() -> Int {

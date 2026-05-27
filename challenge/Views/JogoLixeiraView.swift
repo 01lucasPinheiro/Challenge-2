@@ -12,15 +12,18 @@ struct JogoLixeiraView: View {
     @State private var viewModel = JogoLixeiraViewModel()
     
     var body: some View {
-        ZStack{
+        ZStack(alignment: .bottom){
             Image("CenarioJogoLixeira")
                 .resizable()
-                .scaledToFit()
-            Spacer()
+                //.scaledToFit()
+                .interpolation(.none)
+                .ignoresSafeArea()
+
+            //Spacer()
             VStack{
                 Text("Sua pontuação é: \(viewModel.pontuacao)")
                     .font(.headline)
-                
+                //Spacer()
                 HStack(spacing: 50) {
                     ForEach(0...4, id: \.self) { index in
                         Image(viewModel.nomeImagemLixeira(para: index))

@@ -81,7 +81,7 @@ struct testeTela: View {
                 .allowsHitTesting(true)
             }.background(Image("fundoTelaInicial"))
             .navigationDestination(isPresented: $navegando) {
-                JogoLixeiraView()
+                JogoChuvaView()
                     
             }
         }
