@@ -101,7 +101,7 @@ struct JogoFabricaView: View {
                                             
                                             Text("Controle de Produção")
                                                 .font(
-                                                Font.custom("Inter-Regular", size: 28)
+                                                Font.custom("Inter", size: 20)
                                                     .weight(.bold)
                                                 )
                                                 .foregroundColor(.white)
@@ -131,19 +131,16 @@ struct JogoFabricaView: View {
                                                         .frame(width: 350, height: 350)
                                                         .position(x: geometry.size.width / 2, y: geometry.size.width / 2 + 40)
                                                         .containerRelativeFrame(.vertical){length, axis in length / 2}
+                                                    // local do medidor
                                                     
-                                                    // circulo central
-                                                    Circle()
-                                                        .fill(Color.botaoTexto)
-                                                        .stroke(Color.botaoCinza, lineWidth: 5)
-                                                        .frame(width: 40, height: 40)
-                                                        .position(x: geometry.size.width / 2, y: geometry.size.width / 2 + 100)
-                                                        .containerRelativeFrame(.vertical){length, axis in length / 2}
                                                     
+                                                    
+                                                    
+                                                  
                                                     ZStack{
                                                         // Botões de aumentar e subtrair
                                                       
-                                                        
+                                                        /*
                                                         ButtonsComponent(
                                                             botao: BotaoPrincipalObjeto.ArrayBotoes[11],
                                                             tela: ContentView()
@@ -157,14 +154,14 @@ struct JogoFabricaView: View {
                                                         )
                                                             .position(x: geometry.size.width / 2 + 100, y: geometry.size.width / 2 + 150 )
                                                             .containerRelativeFrame(.vertical){length, axis in length / 2}
-                                                            
+                                                            */
                                                         ButtonsComponent(
                                                             botao: BotaoPrincipalObjeto.ArrayBotoes[8],
                                                             tela: ContentView()
                                                         )
                                                         .position(x: geometry.size.width / 2 + 340, y: geometry.size.width / 2 + 150 )
                                                         .containerRelativeFrame(.vertical){length, axis in length / 2}
-                                                      
+                                                       
                                                         
                                                         ZStack{
                                                             // Marcadores
@@ -179,14 +176,25 @@ struct JogoFabricaView: View {
                                                                 .resizable()
                                                                 .scaledToFit()
                                                                 .frame(width: 125, height: 120)
-                                                                .position(x: geometry.size.width / 2 + 100, y: geometry.size.width / 2 + 35)
+                                                                .position(x: geometry.size.width / 2 + 98, y: geometry.size.width / 2 + 35)
                                                                 .containerRelativeFrame(.vertical){length, axis in length / 2}
                                                             
                                                             Image("Vector 22") // faixa amarela
                                                                 .resizable()
                                                                 .scaledToFit()
                                                                 .frame(width: 130, height: 125)
-                                                                .position(x: geometry.size.width / 2 - 3, y: geometry.size.width / 2 - 15)
+                                                                .position(x: geometry.size.width / 2 - 3, y: geometry.size.width / 2 - 16)
+                                                                .containerRelativeFrame(.vertical){length, axis in length / 2}
+                                                         
+                                                            Medidor()
+                                                                .position(x: geometry.size.width / 2, y: geometry.size.height / 2 + 255)
+                                                                .containerRelativeFrame(.vertical){length, axis in length}
+                                                            // circulo central
+                                                            Circle()
+                                                                .fill(Color.botaoTexto)
+                                                                .stroke(Color.botaoCinza, lineWidth: 5)
+                                                                .frame(width: 40, height: 40)
+                                                                .position(x: geometry.size.width / 2, y: geometry.size.width / 2 + 100)
                                                                 .containerRelativeFrame(.vertical){length, axis in length / 2}
                                                             
                                                             
