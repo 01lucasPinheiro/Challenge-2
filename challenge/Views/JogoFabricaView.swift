@@ -69,6 +69,7 @@ struct JogoFabricaView: View {
                     .padding(.bottom, 80)
                     .ignoresSafeArea()
                     .offset(x: -400, y: 130)
+                
                 ZStack{
                     Image("Placa")
                         .interpolation(.none)
@@ -194,7 +195,7 @@ struct JogoFabricaView: View {
                                                 }
                                             }
                                         }.scaleEffect(0.9)
-                        .position(x: geometry.size.width, y: geometry.size.height / 2)
+                        .position(x: geometry.size.width, y: geometry.size.height / 1.9)
                                         .padding(.bottom, geometry.safeAreaInsets.bottom) // ajustar menu para a parte de baixo da tela , adequando-se a safearea e de forma responsiva
                    
                     
