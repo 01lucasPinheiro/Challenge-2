@@ -37,7 +37,9 @@ class BotaoPrincipalObjeto{
         // + e -
         
         BotaoPrincipalClasse(mostrarIcon: false, mostrarTexto: true, icon: "minus", textoBotao: "—", radius: 20, corTextoBotao: .botaoTexto, corBotao: .botaoAzul, corBotaoGradiente: .azulGradiente, widthFrame: 75, heightFrame: 60, contornoBranco: true),
-        BotaoPrincipalClasse(mostrarIcon: true, mostrarTexto: false, icon: "plus", textoBotao: "soma", radius: 20, corTextoBotao: .botaoTexto, corBotao: .botaoAzul, corBotaoGradiente: .azulGradiente, widthFrame: 75, heightFrame: 60, contornoBranco: true)
+        BotaoPrincipalClasse(mostrarIcon: true, mostrarTexto: false, icon: "plus", textoBotao: "soma", radius: 20, corTextoBotao: .botaoTexto, corBotao: .botaoAzul, corBotaoGradiente: .azulGradiente, widthFrame: 75, heightFrame: 60, contornoBranco: true),
+        
+      
         
     ]
         
