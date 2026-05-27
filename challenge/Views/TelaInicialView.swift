@@ -41,6 +41,7 @@ struct testeTela: View {
                                 .frame(width: 2488, height: 1861)
                             Image("predios")
                             
+                            
                             Image("logoChuva")
                                 .resizable()
                                 .frame(width: 100, height: 100)
@@ -86,12 +87,35 @@ struct testeTela: View {
                 
                 ZStack{
                     VStack{
-                        TermometroView(temperatura: cidadeData.poluicao, index: 0)
-                        TermometroView(temperatura: cidadeData.temperatura, index: 1)
-                        TermometroView(temperatura: cidadeData.umidade, index: 2)
+                        HStack {
+                            Legenda(caixa: LegendaObjeto.arrayCaixas[0]) {
+                                VStack(alignment: .leading) {
+                                    
+                                    ConteudoLegenda(
+                                        legenda: ConteudoLegendaObjeto.ArrayLegenda[0])
+                                    ConteudoLegenda(
+                                        legenda: ConteudoLegendaObjeto.ArrayLegenda[1])
+                                   ConteudoLegenda(
+                                       legenda: ConteudoLegendaObjeto.ArrayLegenda[2])
+                                   }
+                               }
+                            
+                            Spacer()
+                            
+                            
+                            Legenda(caixa: LegendaObjeto.arrayCaixas[1]) {
+                                VStack(alignment: .leading) {
+                                    TermometroView(temperatura: cidadeData.poluicao, index: 0)
+                                    TermometroView(temperatura: cidadeData.temperatura, index: 1)
+                                    TermometroView(temperatura: cidadeData.umidade, index: 2)
+                                }
+                            }
+                            .padding(.top, 70)
+                            
+                        }
                     }
                     
-                }.frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .bottomTrailing)
+                }.frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .bottom)
                     .padding()
                 
             }.background(Image("fundoTelaInicial"))

@@ -12,7 +12,7 @@ struct TermometroView: View {
 
     let temperatura: Double
     private let comprimento: CGFloat = 300
-    private let espessura: CGFloat = 50
+    private let espessura: CGFloat = 30
     private let marcacoes: [CGFloat] = [0.25, 0.5, 0.75]
     private let indicadores = ["Poluicao","Temperatura","Umidade"]
     var index: Int
@@ -20,7 +20,7 @@ struct TermometroView: View {
         VStack(spacing: 30) {
             HStack(spacing: 16){
                 Image("indicador\(indicadores[index])")
-                    .scaleEffect(1.2)
+                    .scaleEffect(1)
             ZStack(alignment: .leading) {
                 
                     

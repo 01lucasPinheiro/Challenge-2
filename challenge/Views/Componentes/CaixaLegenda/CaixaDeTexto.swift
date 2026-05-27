@@ -32,32 +32,24 @@ struct CaixaDeTexto: View {
                             .stroke(Color.botaoAzul, lineWidth: 1)
                         
                     )
-                Text(mensagem[index])
-                    .font(
-                    Font.custom("Poppins", size: 20)
-                    .weight(.bold)
-                    )
-                    .multilineTextAlignment(.center)
-                    .foregroundColor(Color.azulTexto)
-
-                    .frame(width: 805, height: 170, alignment: .center)
-                    .padding(.leading, -80)
+                HStack {
+                    Text(mensagem[index])
+                        .font(
+                            Font.custom("Poppins", size: 20)
+                                .weight(.bold)
+                        )
+                        .multilineTextAlignment(.center)
+                        .foregroundColor(Color.azulTexto)
                     
-                Button {
-                    mensagemVisivel  = false
-                    print("Custom text button tapped")
-                } label: {
-                    Text("Entendido")
-                        .font(.system(size: 20))
-                        .fontWeight(.bold)
-                        .foregroundColor(.white)
-                        .foregroundColor(.clear)
-                        .frame(width: 120, height: 70)
-                        .background(Color.botaoVerde)
-                        .cornerRadius(10)
-                       
-                       
-                } .padding(.leading, 890)
+                        .frame(width: 805, height: 170, alignment: .center)
+                    
+                    ButtonsComponent(
+                        botao: BotaoPrincipalObjeto.ArrayBotoes[13])
+                    {
+                        mensagemVisivel = false
+                    }
+                }
+                    
                 
             }//.position(x: geometry.size.width / 2 + 340, y: geometry.size.width / 2 + 150 )
         }

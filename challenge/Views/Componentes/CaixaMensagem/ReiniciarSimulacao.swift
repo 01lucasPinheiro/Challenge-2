@@ -9,11 +9,29 @@ import Foundation
 import SwiftUI
 struct ReiniciarSimulacao: View {
     let mensagemTela: ReiniciarSimulacaoClasse
+    @Binding var mostrarPopup: Bool
+    
+    //na tela principal:
+    //@State private var mostrarPopup = false
+    //
+    // ButtonsComponent(
+    //botao: BotaoPrincipalObjeto.ArrayBotoes[10])
+    //    {
+    //      mostrarPopup = true
+    //    }
+    
+//       if mostrarPopup {
+//                    ReiniciarSimulacao(
+//                        mostrarPopup: $mostrarPopup
+//                    )
+//                }
+    
+    let reiniciarSimulacao: () -> Void
+
     
     var body: some View {
         GeometryReader{ geometry in
             
-            RoundedRectangle(cornerRadius: 20)
             RoundedRectangle(cornerRadius: 20)
                 .fill(Color.caixasAzul.opacity(0.5))
                 .overlay(
@@ -56,23 +74,28 @@ struct ReiniciarSimulacao: View {
                             
                             if mensagemTela.mensagemInformativa {
                                 ButtonsComponent(
-                                    botao: BotaoPrincipalObjeto.ArrayBotoes[8],
-                                    tela: ContentView()
-                                )
+                                    botao: BotaoPrincipalObjeto.ArrayBotoes[8])
+                                {
+                                    mostrarPopup = false
+                                }
                             }
                              
                                 else {
                                     ButtonsComponent(
-                                        botao: BotaoPrincipalObjeto.ArrayBotoes[10],
-                                        tela: ContentView()
-                                    )
+                                        botao: BotaoPrincipalObjeto.ArrayBotoes[10])
+                                    {
+                                        mostrarPopup = false
+                                    }
                                     
                                 Spacer()
                                     ButtonsComponent(
-                                        botao: BotaoPrincipalObjeto.ArrayBotoes[11],
-                                        tela: ContentView()
-                                )
+                                        botao: BotaoPrincipalObjeto.ArrayBotoes[11])
+                                    {
+                                        reiniciarSimulacao()
+                                        mostrarPopup = false
+                                    }
                             }
+                            
                             Spacer()
                             
                         }
