@@ -9,7 +9,7 @@ import Observation
 
 @Observable
 class DadosCidadeData {
-    var temperatura: Double = 0.9 {
+    var temperatura: Double = 0.5 {
         didSet { print("Temperatura mudou para: \(temperatura)") }
     }
     var umidade: Double = 0.5 {

@@ -86,8 +86,8 @@ struct testeTela: View {
                 ZStack{
                     VStack{
                         TermometroView(temperatura: cidadeData.poluicao, index: 0)
-                        TermometroView(temperatura: cidadeData.umidade, index: 1)
-                        TermometroView(temperatura: cidadeData.temperatura, index: 2)
+                        TermometroView(temperatura: cidadeData.temperatura, index: 1)
+                        TermometroView(temperatura: cidadeData.umidade, index: 2)
                     }
                     
                 }.frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .bottomTrailing)
