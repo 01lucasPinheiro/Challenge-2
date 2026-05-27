@@ -10,7 +10,7 @@ import SwiftUI
 class ConteudoLegendaObjeto{
     public static let ArrayLegenda = [
         
-        ConteudoLegendaClasse(icon: "aqi.high", widthFrame: 50, heightFrame: 50, textoLegenda: "Emissão de Poluentes"),
-        ConteudoLegendaClasse(icon: "cloud.fill", widthFrame: 50, heightFrame: 50, textoLegenda: "Chuva"),
-        ConteudoLegendaClasse(icon: "trash.fill", widthFrame: 50, heightFrame: 50, textoLegenda:"Reciclagem") ]
+        ConteudoLegendaClasse(icon: "logoFabrica", widthFrame: 50, textoLegenda: "Emissão de Poluentes"),
+        ConteudoLegendaClasse(icon: "logoChuva", widthFrame: 50, textoLegenda: "Chuva"),
+        ConteudoLegendaClasse(icon: "logoLixeiras", widthFrame: 50, textoLegenda:"Reciclagem") ]
 }

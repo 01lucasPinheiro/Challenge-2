@@ -10,14 +10,10 @@ import SwiftUI
 
 struct LegendaClasse: Hashable{
     let titulo: String
-    var widthMax: CGFloat
-    var heightMax: CGFloat
     let radius: CGFloat
     
-    init(titulo: String, widthMax: CGFloat, heightMax: CGFloat, radius: CGFloat) {
+    init(titulo: String, radius: CGFloat) {
         self.titulo = titulo
-        self.widthMax = widthMax
-        self.heightMax = heightMax
         self.radius = radius
     }
 }

@@ -9,8 +9,8 @@ import SwiftUI
 
 struct LegendaObjeto {
     public static let arrayCaixas = [
-        LegendaClasse(titulo: "Legendas", widthMax: 350, heightMax: 200, radius: 20),
-        LegendaClasse(titulo: "Indicadores", widthMax: 350, heightMax: 200, radius: 20),
+        LegendaClasse(titulo: "Legendas", radius: 20),
+        LegendaClasse(titulo: "Indicadores", radius: 20),
         
     ]
 }

@@ -14,28 +14,15 @@ struct ConteudoLegenda: View {
     
     var body: some View {
         
-        VStack(alignment: .leading, spacing: 12) {
+        VStack(alignment: .leading, spacing: 2) {
             
             HStack {
                 HStack {
-                    Image(systemName: legenda.icon)
+                    Image(legenda.icon)
                         .resizable()
-                        .padding(12)
+                        .padding(5)
+                        .frame(width: 60, height: 60)
                 }
-                .frame(width: legenda.widthFrame, height: legenda.heightFrame)
-                .foregroundColor(Color.botaoTexto)
-                .background(
-                    LinearGradient(
-                        stops: [
-                            Gradient.Stop(color: .botaoAzul, location: 0.0),
-                            Gradient.Stop(color: .azulGradiente, location: 3),
-                            ],
-                            
-                        startPoint: .top,
-                        endPoint: .bottom,
-                    )
-                )
-                .cornerRadius(50)
                 
                 Text(legenda.textoLegenda)
                     .font(.system(size: 20, weight: .bold))

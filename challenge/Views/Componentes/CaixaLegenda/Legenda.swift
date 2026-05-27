@@ -17,7 +17,7 @@ struct Legenda<Content: View>: View { //content aceita algum elemento visual do 
     }
     
     var body: some View {
-        VStack(spacing: 12) {
+        VStack(spacing: 15) {
                 Text(caixa.titulo)
                     .font(.system(size: 32, weight: .bold))
                     .foregroundStyle(Color.azulTexto)
@@ -25,7 +25,6 @@ struct Legenda<Content: View>: View { //content aceita algum elemento visual do 
                 conteudo
             }
             .padding(20)
-            .frame(width: caixa.widthMax)
             .background(
                 RoundedRectangle(cornerRadius: caixa.radius)
                     .fill(Color.caixasAzul.opacity(0.5))
@@ -39,18 +38,16 @@ struct Legenda<Content: View>: View { //content aceita algum elemento visual do 
 
 //COMO CHAMAR
 //
-//#Preview {
-//    Legenda(caixa: LegendaObjeto.arrayCaixas[0]) {
-//        VStack(alignment: .leading, spacing: 12) {
-//            
-//            ConteudoLegenda(
-//                legenda: ConteudoLegendaObjeto.ArrayLegenda[0])
-//            ConteudoLegenda(
-//                legenda: ConteudoLegendaObjeto.ArrayLegenda[1])
-//           ConteudoLegenda(
-//               legenda: ConteudoLegendaObjeto.ArrayLegenda[2])
-//
-//
-//           }
-//        }
-//   }
+#Preview {
+    Legenda(caixa: LegendaObjeto.arrayCaixas[0]) {
+        VStack(alignment: .leading) {
+            
+            ConteudoLegenda(
+                legenda: ConteudoLegendaObjeto.ArrayLegenda[0])
+            ConteudoLegenda(
+                legenda: ConteudoLegendaObjeto.ArrayLegenda[1])
+           ConteudoLegenda(
+               legenda: ConteudoLegendaObjeto.ArrayLegenda[2])
+           }
+       }
+   }

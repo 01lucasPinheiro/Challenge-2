@@ -12,13 +12,11 @@ struct ConteudoLegendaClasse: Hashable {
     
     var icon: String
     var widthFrame: CGFloat
-    var heightFrame: CGFloat
     var textoLegenda: String
     
-    init(icon: String, widthFrame: CGFloat, heightFrame: CGFloat, textoLegenda: String) {
+    init(icon: String, widthFrame: CGFloat, textoLegenda: String) {
         self.icon = icon
         self.widthFrame = widthFrame
-        self.heightFrame = heightFrame
         self.textoLegenda = textoLegenda
     }
 }
