@@ -1,11 +1,20 @@
 import SwiftUI
 
+enum TipoJogo: Hashable, Identifiable {
+    case lixeira
+    case fabrica
+    case chuva
+    
+    var id: Self { self }
+}
+
 struct testeTela: View {
     @Environment(DadosCidadeData.self) var cidadeData
     
     @State var corCirculo: Color = .red
     @State private var barra1 = 150.0
     @State private var barra2 = 100.0
+    @State private var jogoSelecionado: TipoJogo? = nil
     @State private var navegando: Bool = false
     @State private var estadoMapa = 0
     @State private var escalaAtual: CGFloat = 0.5
@@ -31,21 +40,28 @@ struct testeTela: View {
                             Image(mapa)
                                 .frame(width: 2488, height: 1861)
                             
-                            Circle()
-                                .fill(corCirculo.opacity(0.1))
-                                .frame(width: 80, height: 80)
-                                .position(x: 758, y: 397)
+                            Image("logoChuva")
+                                .resizable()
+                                .frame(width: 100, height: 100)
+                                .position(x: 800, y: 300)
                                 .onTapGesture {
-                                    withAnimation(.easeInOut(duration: 0.5)) {
-                                        corCirculo = .blue
-                                        barra1 += 50
-                                        barra2 -= 20
-                                        estadoMapa += 1
-                                    }
-                                    navegando = true
+                                    jogoSelecionado = .chuva
                                 }
                             
-                            //NuvensAnimadasView(quantidade: 2)
+                            Image("logoFabrica")
+                                .resizable()
+                                .frame(width: 100, height: 100)
+                                .position(x: 1400, y: 400)
+                                .onTapGesture {
+                                    jogoSelecionado = .fabrica
+                                }
+                            Image("logoLixeiras")
+                                .resizable()
+                                .frame(width: 100, height: 100)
+                                .position(x: 1260, y: 1420)
+                                .onTapGesture {
+                                    jogoSelecionado = .lixeira
+                                }
                         }
                         .scaleEffect(escalaAtual)
                         .gesture(
@@ -65,23 +81,29 @@ struct testeTela: View {
                         }
                     }
                 }
+                
+                
+                ZStack{
+                    VStack{
+                        TermometroView(temperatura: cidadeData.poluicao, index: 0)
+                        TermometroView(temperatura: cidadeData.umidade, index: 1)
+                        TermometroView(temperatura: cidadeData.temperatura, index: 2)
+                    }
                     
-                    
-                    ZStack{
-                        VStack{
-                            TermometroView(temperatura: cidadeData.poluicao, index: 0)
-                            TermometroView(temperatura: cidadeData.umidade, index: 1)
-                            TermometroView(temperatura: cidadeData.temperatura, index: 2)
-                        }
-                        
-                    }.frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .bottomTrailing)
+                }.frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .bottomTrailing)
                     .padding()
                 
             }.background(Image("fundoTelaInicial"))
-            .navigationDestination(isPresented: $navegando) {
-                JogoChuvaView()
-                    
-            }
+                .navigationDestination(item: $jogoSelecionado) { jogo in
+                    switch jogo {
+                    case .chuva:
+                        JogoChuvaView()
+                    case .lixeira:
+                        JogoLixeiraView()
+                    case .fabrica:
+                        JogoFabricaView()
+                    }
+                }
         }
     }
 }
