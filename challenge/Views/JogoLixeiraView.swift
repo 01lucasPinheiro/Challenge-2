@@ -15,18 +15,15 @@ struct JogoLixeiraView: View {
         ZStack(alignment: .bottom){
             Image("CenarioJogoLixeira")
                 .resizable()
-                //.scaledToFit()
                 .interpolation(.none)
                 .ignoresSafeArea()
 
             //Spacer()
             VStack{
-                Text("Sua pontuação é: \(viewModel.pontuacao)")
-                    .font(.headline)
-                //Spacer()
+
                 HStack(spacing: 50) {
                     ForEach(0...4, id: \.self) { index in
-                        Image(viewModel.nomeImagemLixeira(para: index))
+                        lixeiraView(imagem: viewModel.nomeImagemLixeira(para: index), index: index)
                             .background(
                                 GeometryReader { geo in
                                     Color.clear
@@ -41,10 +38,9 @@ struct JogoLixeiraView: View {
                 
                 HStack(spacing: 100) {
                     ForEach(0..<5, id: \.self) { index in
-                        Circle()
-                            .fill(Color.blue)
-                            .frame(width: 40, height: 40)
-                            .overlay(Text("\(index)").foregroundColor(.white))
+                        Image(viewModel.residuosParaJogar[index].nomeImagem)
+                            .scaleEffect(0.5)
+
                             .offset(viewModel.posicao[index])
                         
                             .opacity(viewModel.circulosVisiveis[index] ? 1.0 : 0.0)
