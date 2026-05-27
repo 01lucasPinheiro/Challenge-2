@@ -65,20 +65,18 @@ struct testeTela: View {
                         }
                     }
                 }
-                
-                HStack {
-                    Spacer()
-                    VStack(spacing: 10) {
-                        Spacer()
-                        TermometroView(temperatura: cidadeData.poluicao)
-                        TermometroView(temperatura: cidadeData.umidade)
-                        TermometroView(temperatura: cidadeData.temperatura)
-                    }
+                    
+                    
+                    ZStack{
+                        VStack{
+                            TermometroView(temperatura: cidadeData.poluicao, index: 0)
+                            TermometroView(temperatura: cidadeData.umidade, index: 1)
+                            TermometroView(temperatura: cidadeData.temperatura, index: 2)
+                        }
+                        
+                    }.frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .bottomTrailing)
                     .padding()
-                }
                 
-                
-                .allowsHitTesting(true)
             }.background(Image("fundoTelaInicial"))
             .navigationDestination(isPresented: $navegando) {
                 JogoChuvaView()
