@@ -39,6 +39,7 @@ struct testeTela: View {
                         ZStack {
                             Image(mapa)
                                 .frame(width: 2488, height: 1861)
+                            Image("predios")
                             
                             Image("logoChuva")
                                 .resizable()
