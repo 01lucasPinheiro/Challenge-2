@@ -4,7 +4,8 @@
 <dict>
 	<key>UIAppFonts</key>
 	<array>
-		<string>Inter-VariableFont_opsz,wght.ttf</string>
+		<string>Inter-Medium.otf</string>
+		<string>Poppins-Medium.ttf</string>
 	</array>
 </dict>
 </plist>
