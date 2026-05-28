@@ -33,10 +33,10 @@ struct JogoFabricaView: View {
     var corEscuridao: Color {
         switch nivelPoluicao {
         case 1: return .white          // sem alteração
-        case 2: return Color(white: 0.85)
+        case 2: return Color(white: 0.95)
         case 3: return Color(white: 0.65)
-        case 4: return Color(white: 0.45)
-        case 5: return Color(white: 0.25)
+        case 4: return Color(white: 0.25)
+        case 5: return Color(white: 0.05)
         default: return .white
         }
     }
@@ -46,12 +46,10 @@ struct JogoFabricaView: View {
    
    var body: some View {
        GeometryReader { geometry in
-           
-           
-           
+   
            ZStack{
                
-               
+      
                Image("Prédio 2")
                    .interpolation(.none)
                    .resizable(resizingMode: .stretch)
@@ -79,7 +77,7 @@ struct JogoFabricaView: View {
                        .containerRelativeFrame(.vertical) { length, _ in length }
                        .background(
                            GeometryReader { geo in
-                               
+                     
                                ZStack {
                                    Image("usina")
                                        .interpolation(.none)
@@ -312,12 +310,15 @@ ZStack{
                maxWidth: .infinity, maxHeight: .infinity
            )
            .background(Image("Céu Expandido")
+            .overlay(
+                
+        Image("Céu Expandido Escurecido")
+        .colorMultiply(corEscuridao)
+        // .opacity(escuridao)
+        .animation(.easeInOut(duration: 0.6), value: nivelPoluicao)
+            ))
          //   .fill(Color.black)
-            .colorMultiply(corEscuridao)
-                          // .opacity(escuridao)
-                           .animation(.easeInOut(duration: 0.6), value: nivelPoluicao)
-           
-           )
+                       
        }.scaledToFit()
      //  .edgesIgnoringSafeArea(.all)
        
