@@ -26,8 +26,10 @@ class JogoChuvaViewModel {
         switch indice {
         case 0:
             cidadeData.alterarUmidade(novoValor: 0)
+           
         case 1:
             cidadeData.alterarUmidade(novoValor: 0.25)
+          //  NuvensAnimadasView(brigthnessCloud: -0.1)
         case 2:
             cidadeData.alterarUmidade(novoValor: 0.50)
         case 3:

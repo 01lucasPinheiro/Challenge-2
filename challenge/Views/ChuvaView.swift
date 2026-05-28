@@ -12,7 +12,7 @@ struct ChuvaParticulas: View {
 
     var body: some View {
         Capsule()
-            .fill(Color.blue.opacity(0.8))
+            .fill(Color.azulTexto.opacity(0.8))
             .frame(width: 2.5, height: CGFloat.random(in: tamanhoMinGota...tamanhoMaxGota))
             .rotationEffect(.degrees(8))
             .position(x: xPosition, y: iniciarAnimacao ? alturaFinalQueda : yInicial)

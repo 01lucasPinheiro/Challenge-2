@@ -18,19 +18,35 @@ import Foundation
 struct JogoFabricaView: View {
     @State private var viewModel = JogoChuvaViewModel(indice: 0)
     @State private var nivelPoluicao: Int = 2
-    
+    @Environment(DadosCidadeData.self) var cidadeData
     
     
     var corEscuridao: Color {
         switch nivelPoluicao {
-        case 1: return .white          // sem alteração na escuridao do céu
-        case 2: return Color(white: 0.85)
-        case 3: return Color(white: 0.65)
-        case 4: return Color(white: 0.25)
-        case 5: return Color(white: 0.05)
-        default: return .white
+        case 1:
+            cidadeData.alterarPoulicao(novoValor: 0)
+            return .white          // sem alteração na escuridao do céu
+        case 2:
+            cidadeData.alterarPoulicao(novoValor: 0.25)
+            return Color(white: 0.85)
+        case 3:
+            cidadeData.alterarPoulicao(novoValor: 0.5)
+            return Color(white: 0.65)
+        case 4:
+            cidadeData.alterarPoulicao(novoValor: 0.75)
+            return Color(white: 0.25)
+        case 5:
+            cidadeData.alterarPoulicao(novoValor: 1)
+            return Color(white: 0.05)
+        default:
+            cidadeData.alterarPoulicao(novoValor: 0)
+            return .white
         }
     }
+    
+    
+    
+   
     
     
     let chamines: [CGFloat] = [0.02, 0.21, 0.27, 0.38] // posições X das chaminés
@@ -295,6 +311,6 @@ ZStack{
 
 
    #Preview {
-       JogoFabricaView()
+       JogoFabricaView().environment(DadosCidadeData())
            //.previewInterfaceOrientation(.landscapeRight)
    }

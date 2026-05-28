@@ -290,6 +290,7 @@ struct testeTela: View {
                                             
                                         case 1:
                                             Image("enchente")
+                                                .interpolation(.none)
                                                 .opacity(1)
                                                 .brightness(-0.2)
                                                 .offset(x: 41, y: 0)
@@ -297,6 +298,7 @@ struct testeTela: View {
                                             
                                             
                                             Image("nuvemc1")
+                                                .interpolation(.none)
                                                 .opacity(1)
                                                 .brightness(-0.4)
                                                 .offset(x: -50, y: -10)
@@ -310,6 +312,7 @@ struct testeTela: View {
                                                 .scaleEffect(1.3)
                                             
                                             Image("nuvemc1")
+                                                .interpolation(.none)
                                                 .opacity(1)
                                                 .brightness(-0.4)
                                                 .offset(x: -50, y: -140)
@@ -323,6 +326,7 @@ struct testeTela: View {
                                                 .scaleEffect(1.3)  .scaleEffect(1.3)
                                             
                                             Image("nuvemc1")
+                                                .interpolation(.none)
                                                 .opacity(1)
                                                 .brightness(-0.4)
                                                 .offset(x: 50, y: -100)
@@ -356,6 +360,7 @@ struct testeTela: View {
                                                 .zIndex(1)
                                             
                                             Image("nuvemc2")
+                                                .interpolation(.none)
                                                 .opacity(1)
                                                 .brightness(-0.4)
                                                 .offset(x: 0, y: -50)
@@ -369,6 +374,7 @@ struct testeTela: View {
                                                 .scaleEffect(1.3)
                                             
                                             Image("nuvemc3")
+                                                .interpolation(.none)
                                                 .opacity(1)
                                                 .brightness(-0.4)
                                                 .offset(x: -50, y: -70)
@@ -433,27 +439,42 @@ struct testeTela: View {
                                             ParticulasView(intensidadeFumaca: 0) // efeito na fábrica e modelos de 0 a 4
                                                 .offset(x: 180, y: -540)
                                                 .scaleEffect(0.7)
+                                                .onAppear {
+                                                    mudarBrilho(0)
+                                                    mudarSaturação(0)
+                                                }
                                          
                                         case 0.25:
                                             ParticulasView(intensidadeFumaca: 2) // efeito na fábrica e modelos de 0 a 4
                                                 .offset(x: 180, y: -540)
                                                 .scaleEffect(0.7)
+                                                .onAppear {
+                                                    mudarBrilho(-0.1)
+                                                    mudarSaturação(0.8)
+                                                }
+                                            
                                         case 0.50:
                                             ParticulasView(intensidadeFumaca: 1) // efeito na fábrica e modelos de 0 a 4
                                                 .offset(x: 180, y: -540)
                                                 .scaleEffect(0.7)
+                                                .onAppear{
+                                                    mudarBrilho(-0.2)
+                                                    mudarSaturação(0.6)
+                                                }
+                                           
                                         case 0.75:
                                             ParticulasView(intensidadeFumaca: 3) // efeito na fábrica e modelos de 0 a 4
                                                 .offset(x: 180, y: -540)
                                                 .scaleEffect(0.7)
+                                                .onAppear{
+                                                    mudarBrilho(-0.3)
+                                                    mudarSaturação(0.4)
+                                                }
                                         case 1:
                                             ParticulasView(intensidadeFumaca: 3) // efeito na fábrica e modelos de 0 a 4
                                                 .offset(x: 180, y: -540)
                                                 .scaleEffect(0.7)
-                                                .onAppear {
-                                                    mudarBrilho(-0.2)
-                                                    mudarSaturação(0.3)
-                                                }
+                                               
                                           //  ParticulasView(intensidadeFumaca: 4) // efeito na fábrica e modelos de 0 a 4
                                               // .offset(x: 120, y: -540)
                                                // .scaleEffect(0.7)
@@ -814,7 +835,7 @@ struct testeTela: View {
                                        // EfeitoRaioTela()
                                         
                                         
-                                    }.scaleEffect(2.3)
+                                    }.scaleEffect(2.0)
                                 )
                             
                             

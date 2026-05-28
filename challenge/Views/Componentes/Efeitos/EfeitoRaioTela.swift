@@ -13,8 +13,8 @@ struct EfeitoRaioTela: View {
             
             //Imagem do Trovão/Raio
             Image("Raio 1")
-                .resizable()
-                .scaledToFit()
+                .scaleEffect(1)
+               // .scaledToFit()
                 .opacity(opacidadeRaio)
         }
         .onAppear {

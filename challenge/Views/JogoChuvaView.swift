@@ -13,9 +13,34 @@ struct JogoChuvaView: View {
     @State private var pulsar: Bool = false
     @State var indicadorClique = true
     
+    
+    var nuvensBrilho: Double {
+        switch cidadeData.umidade {
+        case 0:
+            return 0
+        case 0.25:
+            return -0.1
+        case 0.5:
+            return -0.15
+        case 0.75:
+            return -0.25
+        case 1:
+            return -0.3
+        default:
+            return 0
+        }
+    }
+    
     var body: some View {
+        
+  
+        
         GeometryReader { geometry in
             ZStack(alignment: .top) { 
+                
+                if viewModel.quantidadenuvens() == 8 {
+                    EfeitoRaioTela()
+                }
                 
                 Image("")
                     .resizable()
@@ -31,12 +56,13 @@ struct JogoChuvaView: View {
                             }
                         }
                     }
-                EfeitoRaioTela()
+               // EfeitoRaioTela()
                
                 
                 testedaChuva(intensidadeChuva: viewModel.intensidadeChuva(), geo: geometry)
                 
-                NuvensAnimadasView(quantidade: viewModel.quantidadenuvens(), geoWidth: geometry.size.width)
+                NuvensAnimadasView(quantidade: viewModel.quantidadenuvens(), geoWidth: geometry.size.width, brigthnessCloud: nuvensBrilho)
+               // NuvensAnimadas
                 
                 VStack() {
                     CaixaDeTexto(index: 0)
@@ -58,7 +84,8 @@ struct JogoChuvaView: View {
                 .frame(width: geometry.size.width, height: geometry.size.height)
                 
             }
-        }.background(Image("fundoTelaInicial"))
+        }.background(Image("fundoTelaInicial")
+            .brightness(nuvensBrilho))
     }
 }
 #Preview {
