@@ -69,8 +69,22 @@ struct JogoLixeiraView: View {
             .coordinateSpace(name: "campoDoJogo")
             VStack{
                 CaixaDeTexto(index: 2)
+               // BotaoPrincipalObjeto()
+               
+                
                 Spacer()
             }.padding(100)
+            
+            ZStack(alignment: .bottomTrailing){
+                ButtonsComponent(
+                    botao: BotaoPrincipalObjeto.ArrayBotoes[8])
+                {
+                    // mostrarPopup = false
+                }.padding(.leading, 900)
+                .safeAreaPadding(.bottom, 20)
+                    
+            
+            }
         }
         
     }
