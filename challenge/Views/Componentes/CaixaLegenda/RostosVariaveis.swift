@@ -10,11 +10,11 @@ import SwiftUI
 struct RostosVariaveis: View {
    
    var imagensRostos: [String] = ["Rosto Feliz", "Rosto Indiferente", "Rosto Mal estar"]
-    var imagensRostosIndewx: Int = 0
+    var imagensRostosIndex: Int = 0
     
     var body: some View {
         
-        Image(imagensRostos[imagensRostosIndewx])
+        Image(imagensRostos[imagensRostosIndex])
     }
 }
 

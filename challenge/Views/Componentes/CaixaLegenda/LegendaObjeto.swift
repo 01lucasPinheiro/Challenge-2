@@ -11,6 +11,7 @@ struct LegendaObjeto {
     public static let arrayCaixas = [
         LegendaClasse(titulo: "Legendas", radius: 20),
         LegendaClasse(titulo: "Indicadores", radius: 20),
+        LegendaClasse(titulo: "Bem-Estar \n Populacional", radius: 20),
         
     ]
 }

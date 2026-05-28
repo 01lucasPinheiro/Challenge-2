@@ -84,6 +84,17 @@ struct JogoChuvaView: View {
                 .frame(width: geometry.size.width, height: geometry.size.height)
                 
             }
+            ZStack(alignment: .bottomTrailing){
+                ButtonsComponent(
+                    botao: BotaoPrincipalObjeto.ArrayBotoes[8])
+                {
+                    // mostrarPopup = false
+                }.padding(.leading, 900)
+                    .padding (.top, 900)
+                .safeAreaPadding(.bottom, -20)
+                    
+            
+            }
         }.background(Image("fundoTelaInicial")
             .brightness(nuvensBrilho))
     }

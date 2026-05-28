@@ -23,6 +23,8 @@ struct testeTela: View {
     @State var brilhoFundoTela: Double = 0 // nuvens de fundo e céu azul - brilho
     @State var valorStaturação: Double = 1
     
+    @State var rostos: Int = 0
+    
     let zoomMinimo: CGFloat = 0.5
     let zoomMaximo: CGFloat = 2.0
     var mapa: String {
@@ -128,6 +130,11 @@ struct testeTela: View {
                                                 .offset(x: -10, y: -200)
                                                 .scaleEffect(1.3)
                                                 .zIndex(1)
+                                                .onAppear {
+                                                    rostos  = 0
+                                                    cidadeData.poluicao = 0.25
+                                                }
+                                               
                                             
                                         case 0.25:
                                             Image("nuvem 1")
@@ -171,6 +178,10 @@ struct testeTela: View {
                                             EfeitoChuvaView(chuvaForte: false)
                                                 .offset(x: -10, y: -200)
                                                 .scaleEffect(1.3)
+                                                .onAppear {
+                                                    rostos  = 0
+                                                    cidadeData.poluicao = 0.25
+                                                }
                                         case 0.50:
                                             // Chuva 2 - moderada
                                             
@@ -233,6 +244,10 @@ struct testeTela: View {
                                             EfeitoChuvaView(chuvaForte: false)
                                                 .offset(x: -10, y: -200)
                                                 .scaleEffect(1.3)
+                                                .onAppear {
+                                                    rostos  = 1
+                                                    cidadeData.poluicao = 0.50
+                                                }
                                         case 0.75:
                                             // chuva 3 - moderada forte
                                             
@@ -287,6 +302,10 @@ struct testeTela: View {
                                             EfeitoChuvaView(chuvaForte: true)
                                                 .offset(x: -40, y: -130)
                                                 .scaleEffect(1.3)
+                                                .onAppear {
+                                                    rostos  = 2
+                                                    cidadeData.poluicao = 0.75
+                                                }
                                             
                                         case 1:
                                             Image("enchente")
@@ -399,6 +418,10 @@ struct testeTela: View {
                                             EfeitoChuvaView(chuvaForte: true)
                                                 .offset(x: -230, y: -70)
                                                 .scaleEffect(1.3)
+                                                .onAppear {
+                                                    rostos  = 2
+                                                    cidadeData.poluicao = 1
+                                                }
                                             
                                         default:
                                             Image("nuvem 1")
@@ -432,6 +455,9 @@ struct testeTela: View {
                                                 .brightness(-0.2)
                                                 .offset(x: -10, y: -200)
                                                 .scaleEffect(1.3)
+                                                .onAppear {
+                                                    rostos  = 0
+                                                }
                                         }
                                     
                                         switch cidadeData.poluicao {
@@ -442,6 +468,7 @@ struct testeTela: View {
                                                 .onAppear {
                                                     mudarBrilho(0)
                                                     mudarSaturação(0)
+                                                    rostos = 1
                                                 }
                                          
                                         case 0.25:
@@ -451,6 +478,7 @@ struct testeTela: View {
                                                 .onAppear {
                                                     mudarBrilho(-0.1)
                                                     mudarSaturação(0.8)
+                                                    rostos = 0
                                                 }
                                             
                                         case 0.50:
@@ -460,6 +488,7 @@ struct testeTela: View {
                                                 .onAppear{
                                                     mudarBrilho(-0.2)
                                                     mudarSaturação(0.6)
+                                                    rostos = 1
                                                 }
                                            
                                         case 0.75:
@@ -469,6 +498,7 @@ struct testeTela: View {
                                                 .onAppear{
                                                     mudarBrilho(-0.3)
                                                     mudarSaturação(0.4)
+                                                    rostos = 2
                                                 }
                                         case 1:
                                             ParticulasView(intensidadeFumaca: 3) // efeito na fábrica e modelos de 0 a 4
@@ -484,12 +514,17 @@ struct testeTela: View {
                                                 .onAppear {
                                                     mudarBrilho(-0.2)
                                                     mudarSaturação(0.3)
+                                                    rostos = 2
                                                 }
                                         default:
                                             ParticulasView(intensidadeFumaca: 2) // efeito na fábrica e modelos de 0 a 4
                                                 .offset(x: 180, y: -540)
                                                 .scaleEffect(0.7)
-                                            
+                                                .onAppear {
+                                                    mudarBrilho(-0.1)
+                                                    mudarSaturação(0.8)
+                                                    rostos = 0
+                                                }
                                         }
                                         
                                         
@@ -888,6 +923,20 @@ struct testeTela: View {
                 ZStack{
                     
                     VStack{
+                        
+                        
+                        HStack{
+                            Spacer()
+                            VStack{
+                                
+                                RostosVariaveis(imagensRostosIndex: rostos)
+                                Legenda(caixa: LegendaObjeto.arrayCaixas[2]){
+                                    
+                                }
+                            }
+                            
+                            
+                        }.padding(10)
                         HStack {
                             Legenda(caixa: LegendaObjeto.arrayCaixas[0]) {
                                 VStack(alignment: .leading) {
@@ -902,7 +951,7 @@ struct testeTela: View {
                             }
                             
                             Spacer()
-
+                            
                             Legenda(caixa: LegendaObjeto.arrayCaixas[1]) {
                                 VStack(alignment: .leading) {
                                     TermometroView(temperatura: cidadeData.poluicao, index: 0)
@@ -912,13 +961,13 @@ struct testeTela: View {
                                 
                             }
                             .padding(.top, 70)
-                        }
+                        }.frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .bottom)
+                            .padding()
+                        
+                        
                     }
                     
-                }.frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .bottom)
-                    .padding()
-                   
-                
+                }
             }
             
             .navigationDestination(item: $jogoSelecionado) { jogo in

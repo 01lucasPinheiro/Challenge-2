@@ -168,7 +168,7 @@ struct JogoFabricaView: View {
                         
                         // INTERFACE INTERATIVA
                         
-                        ZStack{
+                    ZStack{
                             // Retângulo guia
                             RoundedRectangle(cornerRadius: 20)
                                 .stroke(Color.white, lineWidth: 5)
@@ -294,9 +294,10 @@ struct JogoFabricaView: View {
                                     }
                                 }
                             }
-                        }
-                         
-                    
+                        }.frame(
+                            maxWidth: geometry.size.width + 500, maxHeight: geometry.size.height
+                           )
+                          
                     
                     
                 }
