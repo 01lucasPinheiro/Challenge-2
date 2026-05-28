@@ -63,7 +63,7 @@ struct TelaMenuView: View {
                     RoundedRectangle(cornerRadius: 30)
                         .stroke(Color.azulInterface.opacity(0.8), lineWidth: 1)
                 )
-                .shadow(color: .black.opacity(0.10), radius: 12, x: 0, y: 6)
+                .shadow(color: .black.opacity(0.30), radius: 12, x: 0, y: 6)
                 
                 
                 
