@@ -11,12 +11,10 @@ import Combine
 
 
 
-struct FumacaView: View {
+struct ParticulasView: View {
     
-    @State private var particulas: [efeitoFumaca] = []
+    @State private var particulas: [efeitoParticulas] = []
     let timer = Timer.publish(every: .random(in: 0.1...0.9), on: .main, in: .common).autoconnect()
-    
-    
     let timer2 = Timer.publish(every: .random(in: 0.1...1.5), on: .main, in: .common).autoconnect()
     
     var ligada: Bool = true
@@ -24,35 +22,23 @@ struct FumacaView: View {
     var body: some View {
         
         
-        ZStack{
-            Image("Chamine usina")
-                .interpolation(.none)
-                .resizable()
-                .scaledToFit()
-                .offset(y: 400)
-                .background(
-                    GeometryReader { geo in
-                        
+                  
                         if ligada {
-                           
                             ZStack{
-                                ForEach(particulas) { p in EfeitoFumacaView()
+                                ForEach(particulas) { p in Particulas()
                                     // .position(x: 0, y: 400) // posição em x da primeira particula
                                 }
                                 ZStack{
-                                    ForEach(particulas) { p in EfeitoFumacaView()
+                                    ForEach(particulas) { p in Particulas()
                                         //  .position(x: 0, y: 400) // posicao em x da segunda particula
-                                        
-                                        
                                     }
                                     
                                 }
                                 .frame(maxWidth: .infinity, maxHeight: .infinity)
-                                //  .background(Color.black)
                                 .onReceive(timer2) { _ in
-                                    let x = CGFloat.random(in: -100 ..< 250)
-                                    particulas.append(efeitoFumaca(x: x))
-                                    if particulas.count > 51 {
+                                    let x = CGFloat.random(in: 300 ..< 850)
+                                    particulas.append(efeitoParticulas(x: x))
+                                    if particulas.count > 81 { // limite de particulas em tela antes de eliminar
                                         particulas.removeFirst()
                                     }
                                 }
@@ -60,27 +46,34 @@ struct FumacaView: View {
                                 .frame(maxWidth: .infinity, maxHeight: .infinity)
                             // .background(Color.black)
                                 .onReceive(timer) { _ in
-                                    let x = CGFloat.random(in: -350 ..< -100)
-                                    particulas.append(efeitoFumaca(x: x))
-                                    if particulas.count > 51 {
+                                    let x = CGFloat.random(in: -550 ..< -300)
+                                    particulas.append(efeitoParticulas(x: x))
+                                    if particulas.count > 81 {// limite de particulas em tela antes de eliminar
                                         particulas.removeFirst()
                                     }
                                 }.scaleEffect(1)
+                                //.opacity(0.1)
                         }
-                    }
-                ).scaleEffect(0.5)
-                
-        }
+                   
     }
 }
 
 
 
-
-
+// Anotaçõe de particulas animadas no arquivo Particulas
+/*
+ 
+ Efeito aberto 
+withAnimation(.easeOut(duration: 13)){
+    offsetY = -30
+    offsetX = CGFloat.random(in: -360..<360) // este código permite distribuição horizontal da fumaça
+     
+    opacity = 0
+    sizeParticle = 4
+*/
  
  #Preview {
-     FumacaView()
+     ParticulasView()
  }
  
  
