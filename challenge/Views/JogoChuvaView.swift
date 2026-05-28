@@ -31,7 +31,7 @@ struct JogoChuvaView: View {
                             }
                         }
                     }
-                //EfeitoRaioTela()
+                EfeitoRaioTela()
                
                 
                 testedaChuva(intensidadeChuva: viewModel.intensidadeChuva(), geo: geometry)

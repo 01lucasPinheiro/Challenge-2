@@ -12,10 +12,10 @@ class DadosCidadeData {
     var temperatura: Double = 0.5 {
         didSet { print("Temperatura mudou para: \(temperatura)") }
     }
-    var umidade: Double = 0.5 {
+    var umidade: Double = 0.25 {
         didSet { print("Umidade mudou para: \(umidade)") }
     }
-    var poluicao: Double = 0.5 {
+    var poluicao: Double = 1 {
         didSet { print("Poluição mudou para: \(poluicao)") }
     }
         

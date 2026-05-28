@@ -34,6 +34,8 @@ struct testeTela: View {
         }
     }
     
+
+    
     var body: some View {
             ZStack {
                 Image("fundoTelaInicial")
@@ -84,8 +86,739 @@ struct testeTela: View {
                             Image(mapa)
                                 .frame(width: 2488, height: 1861)
                             
-                            
                             Image("predios")
+                                .overlay(
+                                    
+                                    
+                                    // EFEITOS ESPECIAIS
+                                    ZStack{
+                                        
+                                        switch cidadeData.umidade {
+                                            
+                                        case 0:
+                                            Image("nuvem 1")
+                                                .opacity(1)
+                                                .brightness(-0.2)
+                                                .offset(x: -100, y: 0)
+                                                .scaleEffect(1.3)
+                                                .zIndex(1)
+                                            
+                                            
+                                            Image("nuvem 1")
+                                                .opacity(1)
+                                                .brightness(-0.2)
+                                                .offset(x: 140, y: -160)
+                                                .scaleEffect(1.3)
+                                                .zIndex(1)
+                                            
+                                            
+                                            
+                                            
+                                            Image("nuvem 1")
+                                                .opacity(1)
+                                                .brightness(-0.2)
+                                                .offset(x: -110, y: -130)
+                                                .scaleEffect(1.3)
+                                                .zIndex(1)
+                                            
+                                            
+                                            Image("nuvem 1")
+                                                .opacity(1)
+                                                .brightness(-0.2)
+                                                .offset(x: -10, y: -200)
+                                                .scaleEffect(1.3)
+                                                .zIndex(1)
+                                            
+                                        case 0.25:
+                                            Image("nuvem 1")
+                                                .opacity(1)
+                                                .brightness(-0.2)
+                                                .offset(x: -100, y: 0)
+                                                .scaleEffect(1.3)
+                                                .zIndex(1)
+                                            EfeitoChuvaView(chuvaForte: false)
+                                                .offset(x: -100, y: 0)
+                                                .scaleEffect(1.3)
+                                            
+                                            Image("nuvem 1")
+                                                .opacity(1)
+                                                .brightness(-0.2)
+                                                .offset(x: 140, y: -160)
+                                                .scaleEffect(1.3)
+                                                .zIndex(1)
+                                            EfeitoChuvaView(chuvaForte: false)
+                                                .offset(x: 140, y: -160)
+                                                .scaleEffect(1.3)
+                                            
+                                            
+                                            
+                                            Image("nuvem 1")
+                                                .opacity(1)
+                                                .brightness(-0.2)
+                                                .offset(x: -110, y: -130)
+                                                .scaleEffect(1.3)
+                                                .zIndex(1)
+                                            EfeitoChuvaView(chuvaForte: false)
+                                                .offset(x: -110, y: -130)
+                                                .scaleEffect(1.3)
+                                            
+                                            Image("nuvem 1")
+                                                .opacity(1)
+                                                .brightness(-0.2)
+                                                .offset(x: -10, y: -200)
+                                                .scaleEffect(1.3)
+                                                .zIndex(1) // colocar a nuvem na frente das gotas
+                                            EfeitoChuvaView(chuvaForte: false)
+                                                .offset(x: -10, y: -200)
+                                                .scaleEffect(1.3)
+                                        case 0.50:
+                                            // Chuva 2 - moderada
+                                            
+                                            Image("nuvem 1")
+                                                .opacity(1)
+                                                .brightness(-0.2)
+                                                .offset(x: -100, y: 0)
+                                                .scaleEffect(1.3)
+                                                .zIndex(1)
+                                            EfeitoChuvaView(chuvaForte: false)
+                                                .offset(x: -100, y: 0)
+                                                .scaleEffect(1.3)
+                                            
+                                            Image("nuvem 1")
+                                                .opacity(1)
+                                                .brightness(-0.2)
+                                                .offset(x: -50, y: 60)
+                                                .scaleEffect(1.3)
+                                                .zIndex(1)
+                                            EfeitoChuvaView(chuvaForte: false)
+                                                .offset(x: -50, y: 60)
+                                                .scaleEffect(1.3)
+                                            
+                                            Image("nuvem 1")
+                                                .opacity(1)
+                                                .brightness(-0.2)
+                                                .offset(x: 140, y: -160)
+                                                .scaleEffect(1.3)
+                                                .zIndex(1)
+                                            EfeitoChuvaView(chuvaForte: false)
+                                                .offset(x: 140, y: -160)
+                                                .scaleEffect(1.3)
+                                            
+                                            Image("nuvem 1")
+                                                .opacity(1)
+                                                .brightness(-0.2)
+                                                .offset(x: -240, y: -130)
+                                                .scaleEffect(1.3)
+                                                .zIndex(1)
+                                            EfeitoChuvaView(chuvaForte: false)
+                                                .offset(x: -240, y: -130)
+                                                .scaleEffect(1.3)
+                                            
+                                            Image("nuvem 1")
+                                                .opacity(1)
+                                                .brightness(-0.2)
+                                                .offset(x: -110, y: -130)
+                                                .scaleEffect(1.3)
+                                                .zIndex(1)
+                                            EfeitoChuvaView(chuvaForte: false)
+                                                .offset(x: -110, y: -130)
+                                                .scaleEffect(1.3)
+                                            
+                                            Image("nuvem 1")
+                                                .opacity(1)
+                                                .brightness(-0.2)
+                                                .offset(x: -10, y: -200)
+                                                .scaleEffect(1.3)
+                                                .zIndex(1) // colocar a nuvem na frente das gotas
+                                            EfeitoChuvaView(chuvaForte: false)
+                                                .offset(x: -10, y: -200)
+                                                .scaleEffect(1.3)
+                                        case 0.75:
+                                            // chuva 3 - moderada forte
+                                            
+                                            Image("nuvemc1")
+                                                .opacity(1)
+                                                .brightness(-0.2)
+                                                .offset(x: -50, y: -10)
+                                                .scaleEffect(3)
+                                                .zIndex(1)
+                                            EfeitoChuvaView(chuvaForte: true)
+                                                .offset(x: -100, y: 0)
+                                                .scaleEffect(1.3)
+                                            EfeitoChuvaView(chuvaForte: true)
+                                                .offset(x: -150, y: 0)
+                                                .scaleEffect(1.3)
+                                            
+                                            Image("nuvemc1")
+                                                .opacity(1)
+                                                .brightness(-0.2)
+                                                .offset(x: -50, y: -140)
+                                                .scaleEffect(3)
+                                                .zIndex(1)
+                                            EfeitoChuvaView(chuvaForte: true)
+                                                .offset(x: 30, y: -230)
+                                                .scaleEffect(1.3)
+                                            EfeitoChuvaView(chuvaForte: true)
+                                                .offset(x: -90, y: -230)
+                                                .scaleEffect(1.3)  .scaleEffect(1.3)
+                                            
+                                            Image("nuvemc1")
+                                                .opacity(1)
+                                                .brightness(-0.2)
+                                                .offset(x: 50, y: -100)
+                                                .scaleEffect(3)
+                                                .zIndex(1)
+                                            EfeitoChuvaView(chuvaForte: true)
+                                                .offset(x: 80, y: -170)
+                                                .scaleEffect(1.3)
+                                            EfeitoChuvaView(chuvaForte: true)
+                                                .offset(x: 80, y: -170)
+                                                .scaleEffect(1.3)  .scaleEffect(1.3)
+                                            
+                                            Image("nuvemc1")
+                                                .opacity(1)
+                                                .brightness(-0.2)
+                                                .offset(x: 0, y: -70)
+                                                .scaleEffect(4)
+                                                .zIndex(1)
+                                            EfeitoChuvaView(chuvaForte: true)
+                                                .offset(x: -30, y: -130)
+                                                .scaleEffect(1.3)
+                                            EfeitoChuvaView(chuvaForte: true)
+                                                .offset(x: -40, y: -130)
+                                                .scaleEffect(1.3)
+                                            
+                                        case 1:
+                                            Image("enchente")
+                                                .opacity(1)
+                                                .brightness(-0.2)
+                                                .offset(x: 41, y: 0)
+                                                .scaleEffect(0.77)
+                                            
+                                            
+                                            Image("nuvemc1")
+                                                .opacity(1)
+                                                .brightness(-0.4)
+                                                .offset(x: -50, y: -10)
+                                                .scaleEffect(3)
+                                                .zIndex(1)
+                                            EfeitoChuvaView(chuvaForte: true)
+                                                .offset(x: -100, y: 0)
+                                                .scaleEffect(1.3)
+                                            EfeitoChuvaView(chuvaForte: true)
+                                                .offset(x: -150, y: 0)
+                                                .scaleEffect(1.3)
+                                            
+                                            Image("nuvemc1")
+                                                .opacity(1)
+                                                .brightness(-0.4)
+                                                .offset(x: -50, y: -140)
+                                                .scaleEffect(3)
+                                                .zIndex(1)
+                                            EfeitoChuvaView(chuvaForte: true)
+                                                .offset(x: 30, y: -230)
+                                                .scaleEffect(1.3)
+                                            EfeitoChuvaView(chuvaForte: true)
+                                                .offset(x: -90, y: -230)
+                                                .scaleEffect(1.3)  .scaleEffect(1.3)
+                                            
+                                            Image("nuvemc1")
+                                                .opacity(1)
+                                                .brightness(-0.4)
+                                                .offset(x: 50, y: -100)
+                                                .scaleEffect(3)
+                                                .zIndex(1)
+                                            EfeitoChuvaView(chuvaForte: true)
+                                                .offset(x: 80, y: -170)
+                                                .scaleEffect(1.3)
+                                            EfeitoChuvaView(chuvaForte: true)
+                                                .offset(x: 80, y: -170)
+                                                .scaleEffect(1.3)  .scaleEffect(1.3)
+                                            
+                                            RaioView()
+                                                .opacity(1)
+                                                .brightness(-0.2)
+                                                .offset(x: -50, y: -320)
+                                                .scaleEffect(1)
+                                                .zIndex(1)
+                                            
+                                            RaioView()
+                                                .opacity(1)
+                                                .brightness(-0.2)
+                                                .offset(x: -290, y: -140)
+                                                .scaleEffect(1)
+                                                .zIndex(1)
+                                            RaioView()
+                                                .opacity(1)
+                                                .brightness(-0.2)
+                                                .offset(x: 90, y: -140)
+                                                .scaleEffect(1)
+                                                .zIndex(1)
+                                            
+                                            Image("nuvemc2")
+                                                .opacity(1)
+                                                .brightness(-0.4)
+                                                .offset(x: 0, y: -50)
+                                                .scaleEffect(5)
+                                                .zIndex(1)
+                                            EfeitoChuvaView(chuvaForte: true)
+                                                .offset(x: -30, y: -130)
+                                                .scaleEffect(1.3)
+                                            EfeitoChuvaView(chuvaForte: true)
+                                                .offset(x: -40, y: -130)
+                                                .scaleEffect(1.3)
+                                            
+                                            Image("nuvemc3")
+                                                .opacity(1)
+                                                .brightness(-0.4)
+                                                .offset(x: -50, y: -70)
+                                                .scaleEffect(4)
+                                                .zIndex(1)
+                                            EfeitoChuvaView(chuvaForte: true)
+                                                .offset(x: -130, y: -130)
+                                                .scaleEffect(1.3)
+                                            EfeitoChuvaView(chuvaForte: true)
+                                                .offset(x: -150, y: -130)
+                                                .scaleEffect(1.3)
+                                            EfeitoChuvaView(chuvaForte: true)
+                                                .offset(x: -180, y: -130)
+                                                .scaleEffect(1.3)
+                                            EfeitoChuvaView(chuvaForte: true)
+                                                .offset(x: -280, y: -70)
+                                                .scaleEffect(1.3)
+                                            EfeitoChuvaView(chuvaForte: true)
+                                                .offset(x: -160, y: -70)
+                                                .scaleEffect(1.3)
+                                            
+                                            EfeitoChuvaView(chuvaForte: true)
+                                                .offset(x: -230, y: -70)
+                                                .scaleEffect(1.3)
+                                            
+                                        default:
+                                            Image("nuvem 1")
+                                                .opacity(1)
+                                                .brightness(-0.2)
+                                                .offset(x: -100, y: 0)
+                                                .scaleEffect(1.3)
+                                                .zIndex(1)
+                                            
+                                            
+                                            Image("nuvem 1")
+                                                .opacity(1)
+                                                .brightness(-0.2)
+                                                .offset(x: 140, y: -160)
+                                                .scaleEffect(1.3)
+                                                .zIndex(1)
+                                            
+                                            
+                                            
+                                            
+                                            Image("nuvem 1")
+                                                .opacity(1)
+                                                .brightness(-0.2)
+                                                .offset(x: -110, y: -130)
+                                                .scaleEffect(1.3)
+                                                .zIndex(1)
+                                            
+                                            
+                                            Image("nuvem 1")
+                                                .opacity(1)
+                                                .brightness(-0.2)
+                                                .offset(x: -10, y: -200)
+                                                .scaleEffect(1.3)
+                                        }
+                                    
+                                        switch cidadeData.poluicao {
+                                        case 0:
+                                            ParticulasView(intensidadeFumaca: 0) // efeito na fábrica e modelos de 0 a 4
+                                                .offset(x: 180, y: -540)
+                                                .scaleEffect(0.7)
+                                         
+                                        case 0.25:
+                                            ParticulasView(intensidadeFumaca: 2) // efeito na fábrica e modelos de 0 a 4
+                                                .offset(x: 180, y: -540)
+                                                .scaleEffect(0.7)
+                                        case 0.50:
+                                            ParticulasView(intensidadeFumaca: 1) // efeito na fábrica e modelos de 0 a 4
+                                                .offset(x: 180, y: -540)
+                                                .scaleEffect(0.7)
+                                        case 0.75:
+                                            ParticulasView(intensidadeFumaca: 3) // efeito na fábrica e modelos de 0 a 4
+                                                .offset(x: 180, y: -540)
+                                                .scaleEffect(0.7)
+                                        case 1:
+                                            ParticulasView(intensidadeFumaca: 3) // efeito na fábrica e modelos de 0 a 4
+                                                .offset(x: 180, y: -540)
+                                                .scaleEffect(0.7)
+                                                .onAppear {
+                                                    mudarBrilho(-0.2)
+                                                    mudarSaturação(0.3)
+                                                }
+                                          //  ParticulasView(intensidadeFumaca: 4) // efeito na fábrica e modelos de 0 a 4
+                                              // .offset(x: 120, y: -540)
+                                               // .scaleEffect(0.7)
+                                            ParticulasView(intensidadeFumaca: 4) // efeito na fábrica e modelos de 0 a 4
+                                                .offset(x: 120, y: -250)
+                                                .scaleEffect(1.4)
+                                                .onAppear {
+                                                    mudarBrilho(-0.2)
+                                                    mudarSaturação(0.3)
+                                                }
+                                        default:
+                                            ParticulasView(intensidadeFumaca: 2) // efeito na fábrica e modelos de 0 a 4
+                                                .offset(x: 180, y: -540)
+                                                .scaleEffect(0.7)
+                                            
+                                        }
+                                        
+                                        
+                                       // if DadosCidadeData(temperatura)
+                                        // niveis de chuva
+                                        
+                                        // chuva 1 - fraca
+                                        /*
+                                        Image("nuvem 1")
+                                            .opacity(1)
+                                            .brightness(-0.2)
+                                            .offset(x: -100, y: 0)
+                                            .scaleEffect(1.3)
+                                            .zIndex(1)
+                                        EfeitoChuvaView(chuvaForte: false)
+                                            .offset(x: -100, y: 0)
+                                            .scaleEffect(1.3)
+                                         
+                                        Image("nuvem 1")
+                                            .opacity(1)
+                                            .brightness(-0.2)
+                                            .offset(x: 140, y: -160)
+                                            .scaleEffect(1.3)
+                                            .zIndex(1)
+                                        EfeitoChuvaView(chuvaForte: false)
+                                            .offset(x: 140, y: -160)
+                                            .scaleEffect(1.3)
+                                        
+                                       
+                                        
+                                        Image("nuvem 1")
+                                            .opacity(1)
+                                            .brightness(-0.2)
+                                            .offset(x: -110, y: -130)
+                                            .scaleEffect(1.3)
+                                            .zIndex(1)
+                                        EfeitoChuvaView(chuvaForte: false)
+                                            .offset(x: -110, y: -130)
+                                            .scaleEffect(1.3)
+                                        
+                                        Image("nuvem 1")
+                                            .opacity(1)
+                                            .brightness(-0.2)
+                                            .offset(x: -10, y: -200)
+                                            .scaleEffect(1.3)
+                                            .zIndex(1) // colocar a nuvem na frente das gotas
+                                        EfeitoChuvaView(chuvaForte: false)
+                                            .offset(x: -10, y: -200)
+                                            .scaleEffect(1.3)
+                                        */
+                                        
+                                        /*
+                                        // Chuva 2 - moderada
+                                        
+                                        Image("nuvem 1")
+                                            .opacity(1)
+                                            .brightness(-0.2)
+                                            .offset(x: -100, y: 0)
+                                            .scaleEffect(1.3)
+                                            .zIndex(1)
+                                         EfeitoChuvaView(chuvaForte: false)
+                                            .offset(x: -100, y: 0)
+                                            .scaleEffect(1.3)
+                                        
+                                        Image("nuvem 1")
+                                            .opacity(1)
+                                            .brightness(-0.2)
+                                            .offset(x: -50, y: 60)
+                                            .scaleEffect(1.3)
+                                            .zIndex(1)
+                                         EfeitoChuvaView(chuvaForte: false)
+                                            .offset(x: -50, y: 60)
+                                            .scaleEffect(1.3)
+                                        
+                                        Image("nuvem 1")
+                                            .opacity(1)
+                                            .brightness(-0.2)
+                                            .offset(x: 140, y: -160)
+                                            .scaleEffect(1.3)
+                                            .zIndex(1)
+                                         EfeitoChuvaView(chuvaForte: false)
+                                            .offset(x: 140, y: -160)
+                                            .scaleEffect(1.3)
+                                        
+                                        Image("nuvem 1")
+                                            .opacity(1)
+                                            .brightness(-0.2)
+                                            .offset(x: -240, y: -130)
+                                            .scaleEffect(1.3)
+                                            .zIndex(1)
+                                         EfeitoChuvaView(chuvaForte: false)
+                                            .offset(x: -240, y: -130)
+                                            .scaleEffect(1.3)
+                                        
+                                        Image("nuvem 1")
+                                            .opacity(1)
+                                            .brightness(-0.2)
+                                            .offset(x: -110, y: -130)
+                                            .scaleEffect(1.3)
+                                            .zIndex(1)
+                                         EfeitoChuvaView(chuvaForte: false)
+                                            .offset(x: -110, y: -130)
+                                            .scaleEffect(1.3)
+                                        
+                                        Image("nuvem 1")
+                                            .opacity(1)
+                                            .brightness(-0.2)
+                                            .offset(x: -10, y: -200)
+                                            .scaleEffect(1.3)
+                                            .zIndex(1) // colocar a nuvem na frente das gotas
+                                         EfeitoChuvaView(chuvaForte: false)
+                                            .offset(x: -10, y: -200)
+                                            .scaleEffect(1.3)
+                                        */
+                                     
+                                        
+                                        
+                                    // chuva 3 - moderada forte
+                                        /*
+                                        Image("nuvemc1")
+                                            .opacity(1)
+                                            .brightness(-0.2)
+                                            .offset(x: -50, y: -10)
+                                            .scaleEffect(3)
+                                            .zIndex(1)
+                                        EfeitoChuvaView(chuvaForte: true)
+                                            .offset(x: -100, y: 0)
+                                            .scaleEffect(1.3)
+                                        EfeitoChuvaView(chuvaForte: true)
+                                            .offset(x: -150, y: 0)
+                                            .scaleEffect(1.3)
+                                        
+                                        Image("nuvemc1")
+                                            .opacity(1)
+                                            .brightness(-0.2)
+                                            .offset(x: -50, y: -140)
+                                            .scaleEffect(3)
+                                            .zIndex(1)
+                                        EfeitoChuvaView(chuvaForte: true)
+                                            .offset(x: 30, y: -230)
+                                            .scaleEffect(1.3)
+                                        EfeitoChuvaView(chuvaForte: true)
+                                            .offset(x: -90, y: -230)
+                                            .scaleEffect(1.3)  .scaleEffect(1.3)
+                                        
+                                        Image("nuvemc1")
+                                            .opacity(1)
+                                            .brightness(-0.2)
+                                            .offset(x: 50, y: -100)
+                                            .scaleEffect(3)
+                                            .zIndex(1)
+                                        EfeitoChuvaView(chuvaForte: true)
+                                            .offset(x: 80, y: -170)
+                                            .scaleEffect(1.3)
+                                        EfeitoChuvaView(chuvaForte: true)
+                                            .offset(x: 80, y: -170)
+                                            .scaleEffect(1.3)  .scaleEffect(1.3)
+                                        
+                                        Image("nuvemc1")
+                                            .opacity(1)
+                                            .brightness(-0.2)
+                                            .offset(x: 0, y: -70)
+                                            .scaleEffect(4)
+                                            .zIndex(1)
+                                        EfeitoChuvaView(chuvaForte: true)
+                                            .offset(x: -30, y: -130)
+                                            .scaleEffect(1.3)
+                                        EfeitoChuvaView(chuvaForte: true)
+                                            .offset(x: -40, y: -130)
+                                            .scaleEffect(1.3)
+                                        
+                                      */
+                                        
+                                        
+                                        
+                                        // chuva 4 - chuva forte
+                                        /*
+                                            
+                                        Image("enchente")
+                                            .opacity(1)
+                                            .brightness(-0.2)
+                                            .offset(x: 41, y: 0)
+                                            .scaleEffect(0.77)
+                                        
+                                        
+                                            Image("nuvemc1")
+                                                .opacity(1)
+                                                .brightness(-0.4)
+                                                .offset(x: -50, y: -10)
+                                                .scaleEffect(3)
+                                                .zIndex(1)
+                                            EfeitoChuvaView(chuvaForte: true)
+                                                .offset(x: -100, y: 0)
+                                                .scaleEffect(1.3)
+                                            EfeitoChuvaView(chuvaForte: true)
+                                                .offset(x: -150, y: 0)
+                                                .scaleEffect(1.3)
+                                            
+                                            Image("nuvemc1")
+                                                .opacity(1)
+                                                .brightness(-0.4)
+                                                .offset(x: -50, y: -140)
+                                                .scaleEffect(3)
+                                                .zIndex(1)
+                                            EfeitoChuvaView(chuvaForte: true)
+                                                .offset(x: 30, y: -230)
+                                                .scaleEffect(1.3)
+                                            EfeitoChuvaView(chuvaForte: true)
+                                                .offset(x: -90, y: -230)
+                                                .scaleEffect(1.3)  .scaleEffect(1.3)
+                                            
+                                            Image("nuvemc1")
+                                                .opacity(1)
+                                                .brightness(-0.4)
+                                                .offset(x: 50, y: -100)
+                                                .scaleEffect(3)
+                                                .zIndex(1)
+                                            EfeitoChuvaView(chuvaForte: true)
+                                                .offset(x: 80, y: -170)
+                                                .scaleEffect(1.3)
+                                            EfeitoChuvaView(chuvaForte: true)
+                                                .offset(x: 80, y: -170)
+                                                .scaleEffect(1.3)  .scaleEffect(1.3)
+                                            
+                                        RaioView()
+                                            .opacity(1)
+                                            .brightness(-0.2)
+                                            .offset(x: -50, y: -320)
+                                            .scaleEffect(1)
+                                            .zIndex(1)
+                                        
+                                        RaioView()
+                                            .opacity(1)
+                                            .brightness(-0.2)
+                                            .offset(x: -290, y: -140)
+                                            .scaleEffect(1)
+                                            .zIndex(1)
+                                        RaioView()
+                                            .opacity(1)
+                                            .brightness(-0.2)
+                                            .offset(x: 90, y: -140)
+                                            .scaleEffect(1)
+                                            .zIndex(1)
+                                        
+                                            Image("nuvemc2")
+                                            .opacity(1)
+                                                .brightness(-0.4)
+                                                .offset(x: 0, y: -50)
+                                                .scaleEffect(5)
+                                                .zIndex(1)
+                                            EfeitoChuvaView(chuvaForte: true)
+                                                .offset(x: -30, y: -130)
+                                                .scaleEffect(1.3)
+                                            EfeitoChuvaView(chuvaForte: true)
+                                                .offset(x: -40, y: -130)
+                                                .scaleEffect(1.3)
+                                    
+                                        Image("nuvemc3")
+                                            .opacity(1)
+                                            .brightness(-0.4)
+                                            .offset(x: -50, y: -70)
+                                            .scaleEffect(4)
+                                            .zIndex(1)
+                                        EfeitoChuvaView(chuvaForte: true)
+                                            .offset(x: -130, y: -130)
+                                            .scaleEffect(1.3)
+                                        EfeitoChuvaView(chuvaForte: true)
+                                            .offset(x: -150, y: -130)
+                                            .scaleEffect(1.3)
+                                        EfeitoChuvaView(chuvaForte: true)
+                                            .offset(x: -180, y: -130)
+                                            .scaleEffect(1.3)
+                                        EfeitoChuvaView(chuvaForte: true)
+                                            .offset(x: -280, y: -70)
+                                            .scaleEffect(1.3)
+                                        EfeitoChuvaView(chuvaForte: true)
+                                            .offset(x: -160, y: -70)
+                                            .scaleEffect(1.3)
+                                        
+                                        EfeitoChuvaView(chuvaForte: true)
+                                            .offset(x: -230, y: -70)
+                                            .scaleEffect(1.3)
+                                        
+                                        */
+
+                                        
+                                        
+                                        // Fábrica - estado 0
+                                        
+                                        // Fábrica - estado 1
+                                        /*
+                                        ParticulasView(intensidadeFumaca: 2) // efeito na fábrica e modelos de 0 a 4
+                                            .offset(x: 180, y: -540)
+                                            .scaleEffect(0.7)
+                                        */
+                                        //ParticulasView(intensidadeFumaca: 1) // efeito na fábrica e modelos de 0 a 4
+                                         //   .offset(x: 180, y: -540)
+                                         //   .scaleEffect(0.7)
+                                        
+                                        
+                                        // Fábrica - estado 2
+                                        /*
+                                        ParticulasView(intensidadeFumaca: 1) // efeito na fábrica e modelos de 0 a 4
+                                            .offset(x: 180, y: -540)
+                                            .scaleEffect(0.7)
+                                        */
+                                       
+                                         
+                                        /*
+                                        
+                                        // Fábrica estado 3
+                                        
+                                        ParticulasView(intensidadeFumaca: 3) // efeito na fábrica e modelos de 0 a 4
+                                            .offset(x: 180, y: -540)
+                                            .scaleEffect(0.7)
+                                        
+                                        ParticulasView(intensidadeFumaca: 4) // efeito na fábrica e modelos de 0 a 4
+                                            .offset(x: 120, y: -540)
+                                            .scaleEffect(0.7)
+                                        */
+                                        
+                                        
+                                        
+                                        //Fábrica estado 4
+                                        //if dados
+                                      /*  ParticulasView(intensidadeFumaca: 3) // efeito na fábrica e modelos de 0 a 4
+                                            .offset(x: 180, y: -540)
+                                            .scaleEffect(0.7)
+                                        
+                                      //  ParticulasView(intensidadeFumaca: 4) // efeito na fábrica e modelos de 0 a 4
+                                          // .offset(x: 120, y: -540)
+                                           // .scaleEffect(0.7)
+                                        ParticulasView(intensidadeFumaca: 4) // efeito na fábrica e modelos de 0 a 4
+                                            .offset(x: 120, y: -250)
+                                            .scaleEffect(1.4)
+                                            .onAppear {
+                                                mudarBrilho(-0.2)
+                                                mudarSaturação(0.3)
+                                            }*/
+                                            // .rotationEffect(.degrees(180))
+                                        
+                                        //brilhoFundoTela -= 0.3
+                                       // EfeitoRaioTela()
+                                        
+                                        
+                                    }.scaleEffect(2.3)
+                                )
+                            
+                            
+                           // Image("predios")
                             
                             Image("logoChuva")
                                 .resizable()
@@ -109,6 +842,7 @@ struct testeTela: View {
                                 .onTapGesture {
                                     jogoSelecionado = .lixeira
                                 }
+                            
                         }
                         .scaleEffect(escalaAtual)
                         .gesture(
@@ -126,355 +860,7 @@ struct testeTela: View {
                         .onAppear {
                             proxy.scrollTo("centroMapa", anchor: .center)
                         }
-                        .overlay( // EFEITOS ESPECIAIS
-                            ZStack{
-                                
-                            
-                               
-                                
-                                // niveis de chuva
-                                
-                                // chuva 1 - fraca
-                                /*
-                                Image("nuvem 1")
-                                    .opacity(1)
-                                    .brightness(-0.2)
-                                    .offset(x: -100, y: 0)
-                                    .scaleEffect(1.3)
-                                    .zIndex(1)
-                                EfeitoChuvaView(chuvaForte: false)
-                                    .offset(x: -100, y: 0)
-                                    .scaleEffect(1.3)
-                                 
-                                Image("nuvem 1")
-                                    .opacity(1)
-                                    .brightness(-0.2)
-                                    .offset(x: 140, y: -160)
-                                    .scaleEffect(1.3)
-                                    .zIndex(1)
-                                EfeitoChuvaView(chuvaForte: false)
-                                    .offset(x: 140, y: -160)
-                                    .scaleEffect(1.3)
-                                
-                               
-                                
-                                Image("nuvem 1")
-                                    .opacity(1)
-                                    .brightness(-0.2)
-                                    .offset(x: -110, y: -130)
-                                    .scaleEffect(1.3)
-                                    .zIndex(1)
-                                EfeitoChuvaView(chuvaForte: false)
-                                    .offset(x: -110, y: -130)
-                                    .scaleEffect(1.3)
-                                
-                                Image("nuvem 1")
-                                    .opacity(1)
-                                    .brightness(-0.2)
-                                    .offset(x: -10, y: -200)
-                                    .scaleEffect(1.3)
-                                    .zIndex(1) // colocar a nuvem na frente das gotas
-                                EfeitoChuvaView(chuvaForte: false)
-                                    .offset(x: -10, y: -200)
-                                    .scaleEffect(1.3)
-                                */
-                                
-                                /*
-                                 Chuva 2 - moderada
-                                
-                                Image("nuvem 1")
-                                    .opacity(1)
-                                    .brightness(-0.2)
-                                    .offset(x: -100, y: 0)
-                                    .scaleEffect(1.3)
-                                    .zIndex(1)
-                                 EfeitoChuvaView(chuvaForte: false)
-                                    .offset(x: -100, y: 0)
-                                    .scaleEffect(1.3)
-                                
-                                Image("nuvem 1")
-                                    .opacity(1)
-                                    .brightness(-0.2)
-                                    .offset(x: -50, y: 60)
-                                    .scaleEffect(1.3)
-                                    .zIndex(1)
-                                 EfeitoChuvaView(chuvaForte: false)
-                                    .offset(x: -50, y: 60)
-                                    .scaleEffect(1.3)
-                                
-                                Image("nuvem 1")
-                                    .opacity(1)
-                                    .brightness(-0.2)
-                                    .offset(x: 140, y: -160)
-                                    .scaleEffect(1.3)
-                                    .zIndex(1)
-                                 EfeitoChuvaView(chuvaForte: false)
-                                    .offset(x: 140, y: -160)
-                                    .scaleEffect(1.3)
-                                
-                                Image("nuvem 1")
-                                    .opacity(1)
-                                    .brightness(-0.2)
-                                    .offset(x: -240, y: -130)
-                                    .scaleEffect(1.3)
-                                    .zIndex(1)
-                                 EfeitoChuvaView(chuvaForte: false)
-                                    .offset(x: -240, y: -130)
-                                    .scaleEffect(1.3)
-                                
-                                Image("nuvem 1")
-                                    .opacity(1)
-                                    .brightness(-0.2)
-                                    .offset(x: -110, y: -130)
-                                    .scaleEffect(1.3)
-                                    .zIndex(1)
-                                 EfeitoChuvaView(chuvaForte: false)
-                                    .offset(x: -110, y: -130)
-                                    .scaleEffect(1.3)
-                                
-                                Image("nuvem 1")
-                                    .opacity(1)
-                                    .brightness(-0.2)
-                                    .offset(x: -10, y: -200)
-                                    .scaleEffect(1.3)
-                                    .zIndex(1) // colocar a nuvem na frente das gotas
-                                 EfeitoChuvaView(chuvaForte: false)
-                                    .offset(x: -10, y: -200)
-                                    .scaleEffect(1.3)
-                                */
-                             
-                                
-                                
-                            // chuva 3 - moderada forte
-                                /*
-                                Image("nuvemc1")
-                                    .opacity(1)
-                                    .brightness(-0.2)
-                                    .offset(x: -50, y: -10)
-                                    .scaleEffect(3)
-                                    .zIndex(1)
-                                EfeitoChuvaView(chuvaForte: true)
-                                    .offset(x: -100, y: 0)
-                                    .scaleEffect(1.3)
-                                EfeitoChuvaView(chuvaForte: true)
-                                    .offset(x: -150, y: 0)
-                                    .scaleEffect(1.3)
-                                
-                                Image("nuvemc1")
-                                    .opacity(1)
-                                    .brightness(-0.2)
-                                    .offset(x: -50, y: -140)
-                                    .scaleEffect(3)
-                                    .zIndex(1)
-                                EfeitoChuvaView(chuvaForte: true)
-                                    .offset(x: 30, y: -230)
-                                    .scaleEffect(1.3)
-                                EfeitoChuvaView(chuvaForte: true)
-                                    .offset(x: -90, y: -230)
-                                    .scaleEffect(1.3)  .scaleEffect(1.3)
-                                
-                                Image("nuvemc1")
-                                    .opacity(1)
-                                    .brightness(-0.2)
-                                    .offset(x: 50, y: -100)
-                                    .scaleEffect(3)
-                                    .zIndex(1)
-                                EfeitoChuvaView(chuvaForte: true)
-                                    .offset(x: 80, y: -170)
-                                    .scaleEffect(1.3)
-                                EfeitoChuvaView(chuvaForte: true)
-                                    .offset(x: 80, y: -170)
-                                    .scaleEffect(1.3)  .scaleEffect(1.3)
-                                
-                                Image("nuvemc1")
-                                    .opacity(1)
-                                    .brightness(-0.2)
-                                    .offset(x: 0, y: -70)
-                                    .scaleEffect(4)
-                                    .zIndex(1)
-                                EfeitoChuvaView(chuvaForte: true)
-                                    .offset(x: -30, y: -130)
-                                    .scaleEffect(1.3)
-                                EfeitoChuvaView(chuvaForte: true)
-                                    .offset(x: -40, y: -130)
-                                    .scaleEffect(1.3)
-                                
-                              */
-                                
-                                
-                                
-                                // chuva 4 - chuva forte
-                                /*
-                                    
-                                Image("enchente")
-                                    .opacity(1)
-                                    .brightness(-0.2)
-                                    .offset(x: 41, y: 0)
-                                    .scaleEffect(0.77)
-                                
-                                
-                                    Image("nuvemc1")
-                                        .opacity(1)
-                                        .brightness(-0.4)
-                                        .offset(x: -50, y: -10)
-                                        .scaleEffect(3)
-                                        .zIndex(1)
-                                    EfeitoChuvaView(chuvaForte: true)
-                                        .offset(x: -100, y: 0)
-                                        .scaleEffect(1.3)
-                                    EfeitoChuvaView(chuvaForte: true)
-                                        .offset(x: -150, y: 0)
-                                        .scaleEffect(1.3)
-                                    
-                                    Image("nuvemc1")
-                                        .opacity(1)
-                                        .brightness(-0.4)
-                                        .offset(x: -50, y: -140)
-                                        .scaleEffect(3)
-                                        .zIndex(1)
-                                    EfeitoChuvaView(chuvaForte: true)
-                                        .offset(x: 30, y: -230)
-                                        .scaleEffect(1.3)
-                                    EfeitoChuvaView(chuvaForte: true)
-                                        .offset(x: -90, y: -230)
-                                        .scaleEffect(1.3)  .scaleEffect(1.3)
-                                    
-                                    Image("nuvemc1")
-                                        .opacity(1)
-                                        .brightness(-0.4)
-                                        .offset(x: 50, y: -100)
-                                        .scaleEffect(3)
-                                        .zIndex(1)
-                                    EfeitoChuvaView(chuvaForte: true)
-                                        .offset(x: 80, y: -170)
-                                        .scaleEffect(1.3)
-                                    EfeitoChuvaView(chuvaForte: true)
-                                        .offset(x: 80, y: -170)
-                                        .scaleEffect(1.3)  .scaleEffect(1.3)
-                                    
-                                RaioView()
-                                    .opacity(1)
-                                    .brightness(-0.2)
-                                    .offset(x: -50, y: -320)
-                                    .scaleEffect(1)
-                                    .zIndex(1)
-                                
-                                RaioView()
-                                    .opacity(1)
-                                    .brightness(-0.2)
-                                    .offset(x: -290, y: -140)
-                                    .scaleEffect(1)
-                                    .zIndex(1)
-                                RaioView()
-                                    .opacity(1)
-                                    .brightness(-0.2)
-                                    .offset(x: 90, y: -140)
-                                    .scaleEffect(1)
-                                    .zIndex(1)
-                                
-                                    Image("nuvemc2")
-                                    .opacity(1)
-                                        .brightness(-0.4)
-                                        .offset(x: 0, y: -50)
-                                        .scaleEffect(5)
-                                        .zIndex(1)
-                                    EfeitoChuvaView(chuvaForte: true)
-                                        .offset(x: -30, y: -130)
-                                        .scaleEffect(1.3)
-                                    EfeitoChuvaView(chuvaForte: true)
-                                        .offset(x: -40, y: -130)
-                                        .scaleEffect(1.3)
-                            
-                                Image("nuvemc3")
-                                    .opacity(1)
-                                    .brightness(-0.4)
-                                    .offset(x: -50, y: -70)
-                                    .scaleEffect(4)
-                                    .zIndex(1)
-                                EfeitoChuvaView(chuvaForte: true)
-                                    .offset(x: -130, y: -130)
-                                    .scaleEffect(1.3)
-                                EfeitoChuvaView(chuvaForte: true)
-                                    .offset(x: -150, y: -130)
-                                    .scaleEffect(1.3)
-                                EfeitoChuvaView(chuvaForte: true)
-                                    .offset(x: -180, y: -130)
-                                    .scaleEffect(1.3)
-                                EfeitoChuvaView(chuvaForte: true)
-                                    .offset(x: -280, y: -70)
-                                    .scaleEffect(1.3)
-                                EfeitoChuvaView(chuvaForte: true)
-                                    .offset(x: -160, y: -70)
-                                    .scaleEffect(1.3)
-                                
-                                EfeitoChuvaView(chuvaForte: true)
-                                    .offset(x: -230, y: -70)
-                                    .scaleEffect(1.3)
-                                
-                                */
-
-                                
-                                
-                                // Fábrica - estado 0
-                                
-                                // Fábrica - estado 1
-                                /*
-                                ParticulasView(intensidadeFumaca: 2) // efeito na fábrica e modelos de 0 a 4
-                                    .offset(x: 180, y: -540)
-                                    .scaleEffect(0.7)
-                                */
-                                //ParticulasView(intensidadeFumaca: 1) // efeito na fábrica e modelos de 0 a 4
-                                 //   .offset(x: 180, y: -540)
-                                 //   .scaleEffect(0.7)
-                                
-                                
-                                // Fábrica - estado 2
-                                /*
-                                ParticulasView(intensidadeFumaca: 1) // efeito na fábrica e modelos de 0 a 4
-                                    .offset(x: 180, y: -540)
-                                    .scaleEffect(0.7)
-                                */
-                               
-                                 
-                                /*
-                                
-                                // Fábrica estado 3
-                                
-                                ParticulasView(intensidadeFumaca: 3) // efeito na fábrica e modelos de 0 a 4
-                                    .offset(x: 180, y: -540)
-                                    .scaleEffect(0.7)
-                                
-                                ParticulasView(intensidadeFumaca: 4) // efeito na fábrica e modelos de 0 a 4
-                                    .offset(x: 120, y: -540)
-                                    .scaleEffect(0.7)
-                                */
-                                
-                                
-                                
-                                //Fábrica estado 4
-                                
-                                ParticulasView(intensidadeFumaca: 3) // efeito na fábrica e modelos de 0 a 4
-                                    .offset(x: 180, y: -540)
-                                    .scaleEffect(0.7)
-                                
-                              //  ParticulasView(intensidadeFumaca: 4) // efeito na fábrica e modelos de 0 a 4
-                                  // .offset(x: 120, y: -540)
-                                   // .scaleEffect(0.7)
-                                ParticulasView(intensidadeFumaca: 4) // efeito na fábrica e modelos de 0 a 4
-                                    .offset(x: 120, y: -250)
-                                    .scaleEffect(1.4)
-                                    .onAppear {
-                                        mudarBrilho(-0.2)
-                                        mudarSaturação(0.3)
-                                    }
-                                    // .rotationEffect(.degrees(180))
-                                
-                                //brilhoFundoTela -= 0.3
-                               // EfeitoRaioTela()
-                                
-                                
-                            }
-                        )
+                        
                     }
                 }
                 
