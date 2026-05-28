@@ -50,7 +50,7 @@ struct ButtonsComponent: View {
                     
                     if botao.mostrarTexto {
                         Text(botao.textoBotao)
-                            .font(.system(size: 20, weight: .bold))
+                            .font(.system(size: 24, weight: .bold))
                     }
                 }
                 .frame(width: botao.widthFrame, height: botao.heightFrame)
