@@ -19,21 +19,12 @@ struct JogoFabricaView: View {
     @State private var viewModel = JogoChuvaViewModel(indice: 0)
     @State private var nivelPoluicao: Int = 2
     
-    var escuridao: Double {
-        switch nivelPoluicao {
-        case 1: return 0.0
-        case 2: return 0.15
-        case 3: return 0.30
-        case 4: return 0.50
-        case 5: return 0.70
-        default: return 0.0
-        }
-    }
+    
     
     var corEscuridao: Color {
         switch nivelPoluicao {
-        case 1: return .white          // sem alteração
-        case 2: return Color(white: 0.95)
+        case 1: return .white          // sem alteração na escuridao do céu
+        case 2: return Color(white: 0.85)
         case 3: return Color(white: 0.65)
         case 4: return Color(white: 0.25)
         case 5: return Color(white: 0.05)
@@ -113,34 +104,9 @@ struct JogoFabricaView: View {
                                }.scaleEffect(0.9)
                            }
                        )
-                   /*
-                   Image("Fábrica Expandida")
-                       .interpolation(.none)
-                       .resizable()
-                       //.resizable(resizingMode: .stretch)
-                       .scaledToFit()
-                       //.offset(x: -600, y: 130)
-                       .position(x: geometry.size.width / 2 , y: geometry.size.height / 2 + 100)
-                       .containerRelativeFrame(.vertical){length, axis in length}
-                       .background {
-                           GeometryReader { geo in
-                               
-                              /// let w = geo.size
-                               ZStack {
-                                   FumacaView()
-                                               .frame(width: geo.size.width / 2, height: geo.size.height / 2 - 130)
-                                               .position(x: geo.size.width * 0.38 , y: geo.size.height * 0)
-                                   
-                               }
-                               
-                           }.scaleEffect(1)
-                       }*/
+                  
                    
                }
-                    //.zIndex(-1)))
-                  //.containerRelativeFrame(.vertical){length, axis in length / 2}
-               // .frame(width: geometry.size.width , height: geometry.size.height)
-              
             
                    
                
