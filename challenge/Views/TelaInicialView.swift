@@ -129,7 +129,7 @@ struct testeTela: View {
                         .overlay( // EFEITOS ESPECIAIS
                             ZStack{
                                 
-                                
+                            
                                
                                 
                                 // niveis de chuva
@@ -470,7 +470,7 @@ struct testeTela: View {
                                     // .rotationEffect(.degrees(180))
                                 
                                 //brilhoFundoTela -= 0.3
-                            
+                               // EfeitoRaioTela()
                                 
                                 
                             }

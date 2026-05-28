@@ -31,6 +31,8 @@ struct JogoChuvaView: View {
                             }
                         }
                     }
+                //EfeitoRaioTela()
+               
                 
                 testedaChuva(intensidadeChuva: viewModel.intensidadeChuva(), geo: geometry)
                 
@@ -46,13 +48,15 @@ struct JogoChuvaView: View {
                             .foregroundColor(.white)
                             .shadow(radius: 5)
                             .scaleEffect(pulsar ? 1.50 : 1.0)
+                        
+                      
 
 
                     }
-                                           
-                        Spacer()
+                       Spacer()
                 }
                 .frame(width: geometry.size.width, height: geometry.size.height)
+                
             }
         }.background(Image("fundoTelaInicial"))
     }
