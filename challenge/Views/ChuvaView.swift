@@ -52,3 +52,31 @@ struct testedaChuva: View {
         testedaChuva(intensidadeChuva: 1000, geo: geometry)
     }
 }
+
+
+/* // código para escurecer tela
+ 
+ em body
+ var corEscuridao: Color {
+     switch nivelPoluicao {
+     case 1: return .white          // sem alteração
+     case 2: return Color(white: 0.85)
+     case 3: return Color(white: 0.65)
+     case 4: return Color(white: 0.45)
+     case 5: return Color(white: 0.25)
+     default: return .white
+     }
+ }
+ 
+ 
+ 
+ no final do código
+ 
+ .background(Image("Céu Expandido")
+//   .fill(Color.black)
+  .colorMultiply(corEscuridao)
+                // .opacity(escuridao)
+                 .animation(.easeInOut(duration: 0.6), value: nivelPoluicao)
+ 
+ )
+ */

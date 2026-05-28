@@ -17,18 +17,30 @@ import Foundation
 
 struct JogoFabricaView: View {
     @State private var viewModel = JogoChuvaViewModel(indice: 0)
-   
-   
- 
+    @State private var nivelPoluicao: Int = 2
+    
+    
+    
+    var corEscuridao: Color {
+        switch nivelPoluicao {
+        case 1: return .white          // sem alteração na escuridao do céu
+        case 2: return Color(white: 0.85)
+        case 3: return Color(white: 0.65)
+        case 4: return Color(white: 0.25)
+        case 5: return Color(white: 0.05)
+        default: return .white
+        }
+    }
+    
+    
+    let chamines: [CGFloat] = [0.02, 0.21, 0.27, 0.38] // posições X das chaminés
    
    var body: some View {
        GeometryReader { geometry in
-           
-           
-           
+   
            ZStack{
                
-               
+      
                Image("Prédio 2")
                    .interpolation(.none)
                    .resizable(resizingMode: .stretch)
@@ -56,7 +68,7 @@ struct JogoFabricaView: View {
                        .containerRelativeFrame(.vertical) { length, _ in length }
                        .background(
                            GeometryReader { geo in
-                               
+                     
                                ZStack {
                                    Image("usina")
                                        .interpolation(.none)
@@ -69,52 +81,32 @@ struct JogoFabricaView: View {
                                        .resizable()
                                        .aspectRatio(contentMode: .fill)
                                        .frame(width: 433, height: 282)
-                                       .offset(x: -900, y: 240)
+                                       .offset(x: -1200, y: 340)
                                    // Chaminé 1 — ajuste o x/y proporcional (0.0 a 1.0) à posição na imagem
-                                   
-                                   
-                                   FumacaView()
+                                   ForEach(Array(chamines.enumerated()), id: \.offset) { index, xRatio in
+                                       FumacaView(ligada: index < nivelPoluicao - 1)
+                                           .position(
+                                            x: geo.size.width * xRatio,
+                                            y: geo.size.height * 0.43
+                                           )
+                                   }
+                                   /*
+                                   FumacaView(ligada : true)
                                        .position(x: geo.size.width * 0.38 , y: geo.size.height * 0.43)
-                                   FumacaView()
+                                   FumacaView(ligada : true)
                                        .position(x: geo.size.width * 0.27 , y: geo.size.height * 0.43)
-                                   FumacaView()
+                                   FumacaView(ligada : true)
                                        .position(x: geo.size.width * 0.21 , y: geo.size.height * 0.43)
-                                   FumacaView()
+                                   FumacaView(ligada : true)
                                        .position(x: geo.size.width * 0.02 , y: geo.size.height * 0.43)
-                                   FumacaView()
-                                       .position(x: geo.size.width * -0.07 , y: geo.size.height * 0.43)
+                                    */
                                    
                                }.scaleEffect(0.9)
                            }
                        )
-                   /*
-                   Image("Fábrica Expandida")
-                       .interpolation(.none)
-                       .resizable()
-                       //.resizable(resizingMode: .stretch)
-                       .scaledToFit()
-                       //.offset(x: -600, y: 130)
-                       .position(x: geometry.size.width / 2 , y: geometry.size.height / 2 + 100)
-                       .containerRelativeFrame(.vertical){length, axis in length}
-                       .background {
-                           GeometryReader { geo in
-                               
-                              /// let w = geo.size
-                               ZStack {
-                                   FumacaView()
-                                               .frame(width: geo.size.width / 2, height: geo.size.height / 2 - 130)
-                                               .position(x: geo.size.width * 0.38 , y: geo.size.height * 0)
-                                   
-                               }
-                               
-                           }.scaleEffect(1)
-                       }*/
+                  
                    
                }
-                    //.zIndex(-1)))
-                  //.containerRelativeFrame(.vertical){length, axis in length / 2}
-               // .frame(width: geometry.size.width , height: geometry.size.height)
-              
             
                    
                
@@ -243,10 +235,11 @@ ZStack{
                                        .position(x: geometry.size.width / 2 - 3, y: geometry.size.width / 2 - 16)
                                        .containerRelativeFrame(.vertical){length, axis in length / 2}
                                 
-                                   Medidor()
+                                   Medidor(estado: $nivelPoluicao)
                                            .position(x: geometry.size.width / 2, y: geometry.size.width / 2 + 10)
                                            .containerRelativeFrame(.vertical){length, axis in length / 2}
                                    // circulo central
+                                 //  ParticulasView(Particulas())
                                    Circle()
                                        .fill(Color.botaoTexto)
                                        .stroke(Color.botaoCinza, lineWidth: 5)
@@ -282,7 +275,16 @@ ZStack{
            .frame(
                maxWidth: .infinity, maxHeight: .infinity
            )
-           .background(Image("Céu Expandido"))
+           .background(Image("Céu Expandido")
+            .overlay(
+                
+        Image("Céu Expandido Escurecido")
+        .colorMultiply(corEscuridao)
+        // .opacity(escuridao)
+        .animation(.easeInOut(duration: 0.6), value: nivelPoluicao)
+            ))
+         //   .fill(Color.black)
+                       
        }.scaledToFit()
      //  .edgesIgnoringSafeArea(.all)
        

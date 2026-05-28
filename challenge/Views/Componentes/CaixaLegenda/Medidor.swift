@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct Medidor: View {
-    @State private var estado: Int = 1
+    @Binding var estado: Int
 
     var anguloParaEstado: Double {
         switch estado {
@@ -22,16 +22,6 @@ struct Medidor: View {
     }
     
     
-    var chamines: Int {
-        switch estado {
-        case 1: return 1
-        case 2: return 2
-        case 3: return 3
-        case 4: return 4
-        case 5: return 5
-        default: return 1
-        }
-    }
 
     var body: some View {
         VStack(spacing: 60) {
@@ -139,5 +129,5 @@ struct PonteiroView: View {
 }
 
 #Preview {
-    Medidor()
+    Medidor(estado: .constant(2))
 }
