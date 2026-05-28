@@ -64,11 +64,11 @@ class JogoLixeiraViewModel {
                 
                 if indexDaLixeira == lixeiraCorreta {
                     pontuacao += 5
-                    cidadeData.alterarPoulicao(novoValor: -0.05)
+                    cidadeData.alterarPoulicao(novoValor: 0.05)
                     lixeirasResolvidas[indexDaLixeira] = true
                 } else {
                     pontuacao -= 5
-                    cidadeData.alterarPoulicao(novoValor: 0.05)
+                    cidadeData.alterarPoulicao(novoValor: -0.05)
                 }
                 
                 circulosVisiveis[index] = false

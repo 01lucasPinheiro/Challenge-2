@@ -166,7 +166,6 @@ struct testeTela: View {
         }
     }
 
-
 #Preview {
     testeTela()
         .environment(DadosCidadeData())
