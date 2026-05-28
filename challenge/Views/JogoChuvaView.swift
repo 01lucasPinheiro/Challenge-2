@@ -46,11 +46,7 @@ struct JogoChuvaView: View {
                             .foregroundColor(.white)
                             .shadow(radius: 5)
                             .scaleEffect(pulsar ? 1.50 : 1.0)
-                            .onAppear {
-                                withAnimation(.easeInOut(duration: 1.0).repeatForever(autoreverses: true)) {
-                                            pulsar.toggle()
-                                        }
-                            }
+
 
                     }
                                            
