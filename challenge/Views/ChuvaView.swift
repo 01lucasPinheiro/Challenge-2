@@ -1,13 +1,11 @@
 import SwiftUI
 
 struct ChuvaParticulas: View {
-    //@Environment(DadosCidadeData.self) var cidadeData
     @State private var iniciarAnimacao = false
 
     let xPosition: CGFloat
     let duration: Double
-    
-    var yInicial: CGFloat
+    var yInicial: CGFloat 
     var alturaFinalQueda: CGFloat
     var tamanhoMinGota: CGFloat = 25
     var tamanhoMaxGota: CGFloat = 40
@@ -33,25 +31,24 @@ struct ChuvaParticulas: View {
 
 struct testedaChuva: View {
     var intensidadeChuva: Int
+    var geo: GeometryProxy
 
     var body: some View {
-        GeometryReader { geometry in
-            ZStack {
-                //Color.black.edgesIgnoringSafeArea(.all)
-                
-                ForEach(0..<intensidadeChuva, id: \.self) { index in
-                    ChuvaParticulas(
-                        xPosition: CGFloat.random(in: 0...geometry.size.width),
-                        duration: Double.random(in: 0.6...2),
-                        yInicial: 450,
-                        alturaFinalQueda: geometry.size.height + 50
-                    )
-                }
+        ZStack {
+            ForEach(0..<intensidadeChuva, id: \.self) { index in
+                ChuvaParticulas(
+                    xPosition: CGFloat.random(in: 0...geo.size.width),
+                    duration: Double.random(in: 0.6...2),
+                    yInicial: 200,
+                    alturaFinalQueda: geo.size.height + 50
+                )
             }
         }
     }
 }
-
 #Preview {
-    testedaChuva(intensidadeChuva: 1000)
+    GeometryReader { geometry in
+        
+        testedaChuva(intensidadeChuva: 1000, geo: geometry)
+    }
 }

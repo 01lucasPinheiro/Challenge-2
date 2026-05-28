@@ -9,35 +9,29 @@ import SwiftUI
 
 struct NuvensAnimadasView: View {
     let quantidade: Int
-    private let posicoes: [CGPoint] = [
-        CGPoint(x: -420, y: -330),
-        CGPoint(x: 450, y: -330),
-        CGPoint(x: 0, y: -330),
-        CGPoint(x: -250, y: -390),
-        CGPoint(x: 320, y: -390),
-        CGPoint(x: 500, y: -390),
-        CGPoint(x: -600, y: -390)
+    let geoWidth: CGFloat 
+    
+    
+    private let offsetsX: [CGFloat] = [-550, 450, -50, -250, 320, 500, -420]
+    private let offsetsY: [CGFloat] = [150, 120, 100, 140, 90, 120, 150]
 
-    ]
-    //let distancia: CGFloat = -400
     @State var mover = false
+    
     var body: some View {
-        ZStack {
-           
-            ForEach(0..<min(quantidade, posicoes.count), id: \.self) { index in
+        ZStack(alignment: .top) {
+            ForEach(0..<min(quantidade, offsetsX.count), id: \.self) { index in
                 Image("nuvem1")
                     .interpolation(.none)
-                    .scaleEffect(6)
-                    .offset(x: posicoes[index].x, y: posicoes[index].y)
+                    .scaleEffect(6.5)
+                    .offset(x: offsetsX[index], y: offsetsY[index])
                     .transition(.opacity.combined(with: .scale))
             }
         }
-        .frame(width: 1500, height: 1366)
+        .frame(width: geoWidth, height: 200, alignment: .top)
         .animation(.easeInOut(duration: 0.3), value: quantidade)
+        .padding()
     }
 }
-
-
 #Preview {
-    NuvensAnimadasView(quantidade: 10)
+    NuvensAnimadasView(quantidade: 10, geoWidth: 1366)
 }

@@ -32,7 +32,6 @@ struct testeTela: View {
     }
     
     var body: some View {
-        NavigationStack {
             ZStack {
                 Image("fundoTelaInicial")
                     .resizable()
@@ -166,7 +165,7 @@ struct testeTela: View {
             }
         }
     }
-}
+
 
 #Preview {
     testeTela()

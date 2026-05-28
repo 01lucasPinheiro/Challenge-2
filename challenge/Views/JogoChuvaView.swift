@@ -11,41 +11,55 @@ struct JogoChuvaView: View {
     @State private var viewModel = JogoChuvaViewModel(indice: 0)
     @Environment(DadosCidadeData.self) var cidadeData
     @State private var pulsar: Bool = false
+    @State var indicadorClique = true
+    
     var body: some View {
-        ZStack(){
-            Image("")
-                .resizable()
-                .scaledToFill()
-                .ignoresSafeArea()
-                .onTapGesture{
-                    viewModel.mudarMapa(cidadeData: cidadeData)
-                    
-                }
-            testedaChuva(intensidadeChuva: viewModel.intensidadeChuva())
-            NuvensAnimadasView(quantidade: viewModel.quantidadenuvens())
-            
-            VStack {
-                CaixaDeTexto(index: 0)
-                    .padding(250)
-                Image(systemName: "hand.tap.fill")
-                    .font(.system(size: 50))
-                    .foregroundColor(.white)
-                    .shadow(radius: 5)
-                    .scaleEffect(pulsar ? 1.25 : 1.0)
-                    
-                    .onAppear {
+        GeometryReader { geometry in
+            ZStack(alignment: .top) { 
+                
+                Image("")
+                    .resizable()
+                    .scaledToFill()
+                    .frame(width: geometry.size.width, height: geometry.size.height)
+                    .ignoresSafeArea()
+                    .onTapGesture {
+                        viewModel.mudarMapa(cidadeData: cidadeData)
                         
-                        withAnimation(.easeInOut(duration: 0.8).repeatForever(autoreverses: true)) {
-                            pulsar = true
+                        if indicadorClique{
+                            withAnimation(.easeInOut){
+                                indicadorClique = false
+                            }
                         }
-                            
-                        
+                    }
+                
+                testedaChuva(intensidadeChuva: viewModel.intensidadeChuva(), geo: geometry)
+                
+                NuvensAnimadasView(quantidade: viewModel.quantidadenuvens(), geoWidth: geometry.size.width)
+                
+                VStack() {
+                    CaixaDeTexto(index: 0)
+                        .padding(.top, 100)
+                    Spacer()
+                    if indicadorClique {
+                        Image(systemName: "hand.tap.fill")
+                            .font(.system(size: 50))
+                            .foregroundColor(.white)
+                            .shadow(radius: 5)
+                            .scaleEffect(pulsar ? 1.50 : 1.0)
+                            .onAppear {
+                                withAnimation(.easeInOut(duration: 1.0).repeatForever(autoreverses: true)) {
+                                            pulsar.toggle()
+                                        }
+                            }
+
+                    }
+                                           
+                        Spacer()
                 }
-                Spacer()
+                .frame(width: geometry.size.width, height: geometry.size.height)
             }
         }.background(Image("fundoTelaInicial"))
     }
-    
 }
 #Preview {
     JogoChuvaView()
