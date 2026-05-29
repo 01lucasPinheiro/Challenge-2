@@ -108,23 +108,19 @@ struct Particulas: View {
                 }
         case 4:
             Image("ParticulaFumaca")
-            // .rotationEffect(.degrees([90, 180.0].randomElement() ?? 0.0))
-            //.fill(Color.gray)
-                .opacity(0.1)
+                .opacity(0.1) // opacidade da imagem quase transparente
                 .offset(x: offsetX, y: offsetY)
-                .scaleEffect(CGFloat(sizeParticle))
-            // .frame(width: , height: sizeParticle)
-            //.rotationEffect(.degrees([0.0, 180.0].randomElement() ?? 0.0))
-                .saturation(1)
+                .scaleEffect(CGFloat(sizeParticle)) // escala variável
+                .saturation(1) // satruação
                 .onAppear {
-                    withAnimation(.easeOut(duration: 33)){
-                        offsetY = -30
+                    withAnimation(.easeOut(duration: 33)){ // duração
+                        offsetY = -30 // altura que a particula alcança
                         offsetX = CGFloat.random(in: -360..<360) // este código permite distribuição horizontal da fumaça
-                        opacity = 0
-                        sizeParticle = 4
+                        opacity = 0 // opacidade final
+                        sizeParticle = 4 // tamanho final
                     }
                 }
-            /*
+            /* %
              withAnimation(.easeOut(duration: 13)){
                  offsetY = -30
                  offsetX = CGFloat.random(in: -360..<360) // este código permite distribuição horizontal da fumaça

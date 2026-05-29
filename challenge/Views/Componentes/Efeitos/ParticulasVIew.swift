@@ -26,6 +26,8 @@ struct ParticulasView: View {
                   
                         if ligada {
                             ZStack{
+                             
+                                
                                 ForEach(particulas) { p in Particulas(estadoFumaca: intensidadeFumaca)
                                     // .position(x: 0, y: 400) // posição em x da primeira particula
                                 }
