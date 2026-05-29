@@ -9,9 +9,12 @@ import SwiftUI
 
 @main
 struct testeApp: App {
+    @State private var cidadeData = DadosCidadeData()
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            TelaSplashView()
+            //testeTela()
+            .environment(cidadeData)
         }
     }
 }
